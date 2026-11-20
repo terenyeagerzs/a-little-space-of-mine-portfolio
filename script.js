@@ -1,24 +1,73 @@
-// Bukas/Sara ng 3-line menu sa mobile
-function toggleMenu() {
-  const nav = document.getElementById('navLinks');
-  nav.classList.toggle('active');
-}
 
-// View full picture sa About Me
-function openPic() {
-  const picSrc = document.getElementById('myProfilePic').src;
-  document.getElementById('modalImg').src = picSrc;
-  document.getElementById('picModal').style.display = 'flex';
-}
+// =================================
+// 1. MOBILE NAVIGATION
+// =================================
 
-// Isara ang full picture
-function closePic() {
-  document.getElementById('picModal').style.display = 'none';
-}
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
 
 
+// Open and close the navigation menu
+
+menuToggle.addEventListener("click", function () {
+
+    navLinks.classList.toggle("active");
+
+    const isOpen = navLinks.classList.contains("active");
+
+    menuToggle.setAttribute("aria-expanded", isOpen);
+
+    menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation menu" : "Open navigation menu"
+    );
+
+});
 
 
+// Close menu after selecting a navigation link
+
+const navigationItems = document.querySelectorAll(".nav-links a");
+
+navigationItems.forEach(function (link) {
+
+    link.addEventListener("click", function () {
+
+        navLinks.classList.remove("active");
+
+        menuToggle.setAttribute("aria-expanded", "false");
+
+        menuToggle.setAttribute(
+            "aria-label",
+            "Open navigation menu"
+        );
+
+    });
+
+});
+
+
+// Close menu when clicking outside it
+
+document.addEventListener("click", function (event) {
+
+    const clickedInsideMenu = navLinks.contains(event.target);
+    const clickedToggle = menuToggle.contains(event.target);
+
+    if (!clickedInsideMenu && !clickedToggle) {
+
+        navLinks.classList.remove("active");
+
+        menuToggle.setAttribute("aria-expanded", "false");
+
+        menuToggle.setAttribute(
+            "aria-label",
+            "Open navigation menu"
+        );
+
+    }
+
+});
 
 
 
