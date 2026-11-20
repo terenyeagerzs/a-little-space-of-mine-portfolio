@@ -1,0 +1,454 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+.title-outline {
+  font-family: 'Fredoka', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 
+    -2px -2px 0 #3b7ea1,  
+     2px -2px 0 #3b7ea1,
+    -2px  2px 0 #3b7ea1,
+     2px  2px 0 #3b7ea1,
+     0px  4px 6px rgba(0,0,0,0.25);
+}
+
+/* ================= NAVBAR WITH WHITE UNDERLINE ================= */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 15px 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  background: rgba(116, 188, 232, 0.85);
+  backdrop-filter: blur(6px);
+}
+
+.logo {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.4rem;
+  color: #fff;
+  text-decoration: none;
+  text-shadow: 1.5px 1.5px 0 #2b5b78;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding-bottom: 4px;
+  border-bottom: 2px solid #ffffff; /* White line sa baba ng Home, About, Interest */
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+  transition: transform 0.2s, opacity 0.2s;
+  display: inline-block;
+}
+
+.nav-links a:hover {
+  transform: translateY(-2px);
+  opacity: 0.85;
+}
+
+.nav-bear {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.menu-toggle {
+  display: none;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.hamburger span {
+  width: 26px;
+  height: 3px;
+  background: #fff;
+  border-radius: 3px;
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+/* ================= SECTION 1: HERO (DESKTOP RIGHT-ALIGNED) ================= */
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #6eb8e6 0%, #c4e8fc 100%);
+  padding: 120px 8% 60px;
+  display: flex;
+  justify-content: flex-end; /* Itutulak ang text sa kanan sa desktop */
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* White guhit-guhit sa likod ng bunny */
+.bg-stripes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 55%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.stripe {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.85);
+  height: 38px;
+  width: 500px;
+}
+
+.s1 {
+  top: 140px;
+  left: -80px;
+  transform: rotate(-35deg);
+}
+
+.s2 {
+  top: 230px;
+  left: -60px;
+  transform: rotate(-35deg);
+}
+
+.s3 {
+  bottom: 110px;
+  left: -90px;
+  transform: rotate(35deg);
+}
+
+.bunny-sticker {
+  position: absolute;
+  bottom: 10px;
+  left: 4%;
+  width: clamp(140px, 21vw, 260px);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Right-side Hero Content */
+.hero-content {
+  width: 62%;
+  max-width: 720px;
+  text-align: center;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero h1 {
+  font-size: clamp(2.8rem, 5.5vw, 4.8rem); /* Mas malaking size */
+  line-height: 1.08;
+  margin-bottom: 28px;
+}
+
+/* White Box Description (Mas malaki at malinaw) */
+.intro-box {
+  background: #ffffff;
+  color: #163042;
+  border: 2.5px solid #2b5b78;
+  padding: 22px 30px;
+  width: 100%;
+  max-width: 600px;
+  font-size: 1.15rem; /* Mas malaking text */
+  font-weight: 700;
+  line-height: 1.5;
+  box-shadow: 5px 5px 0px rgba(43, 91, 120, 0.25);
+  margin-bottom: 24px;
+}
+
+.btn-wrapper {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  justify-content: flex-end; /* Nasa kanang ilalim ng white box gaya sa Canva mo */
+}
+
+.btn-explore {
+  background: #336b8e;
+  color: #fff;
+  text-decoration: none;
+  padding: 12px 32px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  box-shadow: 0 4px 0 #1f455e;
+  transition: all 0.2s ease;
+}
+
+.btn-explore:hover {
+  transform: translateY(-3px);
+  background: #275675;
+}
+
+/* ================= DENIM STITCHED DIVIDER ================= */
+.denim-divider {
+  height: 18px;
+  width: 100%;
+  /* Realistic Denim Texture Pattern gamit ang CSS */
+  background-color: #5b8cb3;
+  background-image: 
+    repeating-linear-gradient(45deg, rgba(255,255,255,0.12) 0px, rgba(255,255,255,0.12) 2px, transparent 2px, transparent 4px),
+    repeating-linear-gradient(-45deg, rgba(20,45,70,0.15) 0px, rgba(20,45,70,0.15) 2px, transparent 2px, transparent 4px);
+  border-top: 2px dashed #e6f5ff;
+  border-bottom: 2px dashed #e6f5ff;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+}
+
+/* ================= SECTION 2: ABOUT ME ================= */
+.about {
+  background: #7bc1eb;
+  padding: 90px 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 70px;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.pic-wrapper {
+  position: relative;
+  cursor: pointer;
+}
+
+/* Denim Circular Frame */
+.denim-frame {
+  padding: 14px;
+  border-radius: 50%;
+  background-color: #4f80a8;
+  background-image: 
+    repeating-linear-gradient(45deg, rgba(255,255,255,0.15) 0px, rgba(255,255,255,0.15) 2px, transparent 2px, transparent 4px),
+    repeating-linear-gradient(-45deg, rgba(15,35,55,0.2) 0px, rgba(15,35,55,0.2) 2px, transparent 2px, transparent 4px);
+  border: 3px dashed #dcf2ff;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+.profile-pic {
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  border: 2px solid #fff;
+}
+
+.pic-wrapper:hover .denim-frame {
+  transform: scale(1.05);
+}
+
+.pic-hint {
+  display: block;
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 10px;
+  color: #e8f7ff;
+  font-weight: 700;
+}
+
+.cat-sticker {
+  position: absolute;
+  bottom: 12px;
+  left: -25px;
+  width: 105px;
+  pointer-events: none;
+}
+
+.about-text h2 {
+  font-size: clamp(2.5rem, 5vw, 3.8rem);
+  margin-bottom: 15px;
+}
+
+.about-text p {
+  max-width: 480px;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: #f0f9ff;
+}
+
+/* ================= SECTION 3: INTERESTS / KDRAMAS ================= */
+.interests {
+  background: #3d9be0;
+  padding: 95px 8%;
+  text-align: center;
+  position: relative;
+}
+
+.posters-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+  height: 250px;
+}
+
+.poster-card {
+  width: 155px;
+  height: 215px;
+  object-fit: cover;
+  border: 5px solid #ffffff;
+  border-radius: 4px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.3);
+  transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  position: relative;
+}
+
+.poster-1 {
+  transform: rotate(-12deg) translateX(25px);
+  z-index: 1;
+}
+
+.poster-2 {
+  transform: rotate(0deg) translateY(-10px);
+  z-index: 2;
+}
+
+.poster-3 {
+  transform: rotate(12deg) translateX(-25px);
+  z-index: 3;
+}
+
+.poster-card:hover {
+  transform: rotate(0deg) scale(1.22) translateY(-15px);
+  z-index: 50;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.45);
+}
+
+.kdrama-link {
+  text-decoration: none;
+  color: #fff;
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+
+.kdrama-link h2 {
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  line-height: 1.2;
+}
+
+.kdrama-link:hover {
+  transform: scale(1.05);
+}
+
+/* ================= MODAL ================= */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  padding: 20px;
+}
+
+.modal img {
+  max-width: 90%;
+  max-height: 80vh;
+  border-radius: 15px;
+  border: 5px solid #fff;
+}
+
+.close-modal {
+  position: absolute;
+  top: 25px;
+  right: 30px;
+  font-size: 2.5rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* ================= MOBILE RESPONSIVE (PHONE VIEW) ================= */
+@media (max-width: 850px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 65px;
+    right: 5%;
+    background: #5ba4d4;
+    flex-direction: column;
+    padding: 20px 30px;
+    border-radius: 15px;
+    border: 2px dashed #fff;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    display: none;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .desktop-bear {
+    display: none;
+  }
+
+  /* Sa mobile, babalik sa center ang Hero para hindi masikip */
+  .hero {
+    justify-content: center;
+    padding-bottom: 160px;
+  }
+
+  .hero-content {
+    width: 100%;
+  }
+
+  .btn-wrapper {
+    justify-content: center;
+  }
+
+  .bg-stripes {
+    width: 100%;
+    opacity: 0.5;
+  }
+
+  .about {
+    text-align: center;
+    gap: 35px;
+  }
+
+  .poster-card {
+    width: 115px;
+    height: 165px;
+  }
+}
+
+
+
+
+
+
+
