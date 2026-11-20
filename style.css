@@ -1,454 +1,581 @@
+
+/* =================================
+   1. GENERAL SETTINGS
+================================= */
+
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 85px;
 }
 
 body {
-  font-family: 'Quicksand', sans-serif;
-  color: #ffffff;
-  overflow-x: hidden;
+    font-family: 'Roboto Slab', serif;
+    background-color: #78C5F5;
+    color: #173F78;
+    overflow-x: hidden;
 }
 
-.title-outline {
-  font-family: 'Fredoka', sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  text-shadow: 
-    -2px -2px 0 #3b7ea1,  
-     2px -2px 0 #3b7ea1,
-    -2px  2px 0 #3b7ea1,
-     2px  2px 0 #3b7ea1,
-     0px  4px 6px rgba(0,0,0,0.25);
+:root {
+    --sky-blue: #78C5F5;
+    --medium-blue: #5793CB;
+    --dark-blue: #173F78;
+    --white: #FFFFFF;
+    --light-blue: #DCEFFF;
 }
 
-/* ================= NAVBAR WITH WHITE UNDERLINE ================= */
-nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  padding: 15px 6%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 1000;
-  background: rgba(116, 188, 232, 0.85);
-  backdrop-filter: blur(6px);
+
+/* =================================
+   2. NAVIGATION
+================================= */
+
+.navbar {
+    width: 100%;
+    min-height: 75px;
+    padding: 12px 5%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background: rgba(120, 197, 245, 0.96);
+    box-shadow: 0 4px 12px rgba(23, 63, 120, 0.12);
 }
 
-.logo {
-  font-family: 'Fredoka', sans-serif;
-  font-size: 1.4rem;
-  color: #fff;
-  text-decoration: none;
-  text-shadow: 1.5px 1.5px 0 #2b5b78;
+.archive {
+    color: var(--dark-blue);
+    font-size: 15px;
+    font-weight: 800;
+    text-decoration: none;
 }
 
 .nav-links {
-  display: flex;
-  gap: 30px;
-  align-items: center;
-  list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 55px;
 }
 
 .nav-links a {
-  text-decoration: none;
-  color: #fff;
-  font-weight: 700;
-  font-size: 1.1rem;
-  padding-bottom: 4px;
-  border-bottom: 2px solid #ffffff; /* White line sa baba ng Home, About, Interest */
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-  transition: transform 0.2s, opacity 0.2s;
-  display: inline-block;
+    color: white;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 21px;
+    font-weight: bold;
+    text-decoration: none;
+
+    transition: 0.3s ease;
 }
 
 .nav-links a:hover {
-  transform: translateY(-2px);
-  opacity: 0.85;
+    color: var(--dark-blue);
+    transform: translateY(-3px);
 }
 
-.nav-bear {
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
+.teddy {
+    font-size: 35px;
+    cursor: pointer;
 }
+
+
+/* Hamburger button */
 
 .menu-toggle {
-  display: none;
-  align-items: center;
-  gap: 10px;
-  cursor: pointer;
+    display: none;
+
+    width: 38px;
+    height: 35px;
+
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
 }
 
-.hamburger {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
+.menu-toggle span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background: var(--dark-blue);
+    border-radius: 5px;
+
+    transition: 0.3s;
 }
 
-.hamburger span {
-  width: 26px;
-  height: 3px;
-  background: #fff;
-  border-radius: 3px;
-  box-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-}
 
-/* ================= SECTION 1: HERO (DESKTOP RIGHT-ALIGNED) ================= */
+/* =================================
+   3. HEROES SECTION
+================================= */
+
 .hero {
-  min-height: 100vh;
-  background: linear-gradient(180deg, #6eb8e6 0%, #c4e8fc 100%);
-  padding: 120px 8% 60px;
-  display: flex;
-  justify-content: flex-end; /* Itutulak ang text sa kanan sa desktop */
-  align-items: center;
-  position: relative;
-  overflow: hidden;
+    min-height: 570px;
+    padding: 70px 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    position: relative;
+    overflow: hidden;
+
+    background: var(--sky-blue);
+    scroll-margin-top: 75px;
 }
 
-/* White guhit-guhit sa likod ng bunny */
-.bg-stripes {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 55%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1;
+/* Diagonal scrapbook decorations */
+
+.hero-decoration {
+    position: absolute;
+    top: -100px;
+    left: -120px;
+
+    width: 400px;
+    height: 800px;
+
+    background: repeating-linear-gradient(
+        135deg,
+        white 0px,
+        white 35px,
+        #DCEFFF 35px,
+        #DCEFFF 75px,
+        transparent 75px,
+        transparent 110px
+    );
+
+    transform: rotate(8deg);
+    opacity: 0.9;
 }
 
-.stripe {
-  position: absolute;
-  background: rgba(255, 255, 255, 0.85);
-  height: 38px;
-  width: 500px;
+.hero-bunny {
+    position: absolute;
+    bottom: 20px;
+    left: 4%;
+
+    font-size: clamp(90px, 16vw, 180px);
+
+    filter: drop-shadow(5px 7px 5px #24517A);
 }
 
-.s1 {
-  top: 140px;
-  left: -80px;
-  transform: rotate(-35deg);
-}
-
-.s2 {
-  top: 230px;
-  left: -60px;
-  transform: rotate(-35deg);
-}
-
-.s3 {
-  bottom: 110px;
-  left: -90px;
-  transform: rotate(35deg);
-}
-
-.bunny-sticker {
-  position: absolute;
-  bottom: 10px;
-  left: 4%;
-  width: clamp(140px, 21vw, 260px);
-  z-index: 2;
-  pointer-events: none;
-}
-
-/* Right-side Hero Content */
 .hero-content {
-  width: 62%;
-  max-width: 720px;
-  text-align: center;
-  z-index: 3;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    width: 65%;
+    max-width: 750px;
+    text-align: center;
+    z-index: 2;
+}
+
+.welcome {
+    font-size: 13px;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
 }
 
 .hero h1 {
-  font-size: clamp(2.8rem, 5.5vw, 4.8rem); /* Mas malaking size */
-  line-height: 1.08;
-  margin-bottom: 28px;
+    font-size: clamp(40px, 6vw, 76px);
+    line-height: 1.05;
+    font-weight: 800;
+    color: white;
+
+    -webkit-text-stroke: 1.5px #5793CB;
+
+    text-shadow: 3px 4px 0 #5793CB;
 }
 
-/* White Box Description (Mas malaki at malinaw) */
-.intro-box {
-  background: #ffffff;
-  color: #163042;
-  border: 2.5px solid #2b5b78;
-  padding: 22px 30px;
-  width: 100%;
-  max-width: 600px;
-  font-size: 1.15rem; /* Mas malaking text */
-  font-weight: 700;
-  line-height: 1.5;
-  box-shadow: 5px 5px 0px rgba(43, 91, 120, 0.25);
-  margin-bottom: 24px;
+.hero-description {
+    margin: 35px auto 25px;
+    padding: 15px;
+
+    max-width: 520px;
+
+    background: white;
+    border: 2px solid var(--dark-blue);
+
+    font-size: 14px;
+    line-height: 1.7;
 }
 
-.btn-wrapper {
-  width: 100%;
-  max-width: 600px;
-  display: flex;
-  justify-content: flex-end; /* Nasa kanang ilalim ng white box gaya sa Canva mo */
+.explore-button {
+    display: inline-block;
+
+    padding: 9px 22px;
+
+    background: var(--dark-blue);
+    color: white;
+
+    text-decoration: none;
+    border-radius: 8px;
+
+    transition: 0.3s ease;
 }
 
-.btn-explore {
-  background: #336b8e;
-  color: #fff;
-  text-decoration: none;
-  padding: 12px 32px;
-  border-radius: 8px;
-  font-size: 1.1rem;
-  font-weight: 700;
-  box-shadow: 0 4px 0 #1f455e;
-  transition: all 0.2s ease;
+.explore-button:hover {
+    background: white;
+    color: var(--dark-blue);
+    transform: translateY(-4px);
 }
 
-.btn-explore:hover {
-  transform: translateY(-3px);
-  background: #275675;
-}
 
-/* ================= DENIM STITCHED DIVIDER ================= */
-.denim-divider {
-  height: 18px;
-  width: 100%;
-  /* Realistic Denim Texture Pattern gamit ang CSS */
-  background-color: #5b8cb3;
-  background-image: 
-    repeating-linear-gradient(45deg, rgba(255,255,255,0.12) 0px, rgba(255,255,255,0.12) 2px, transparent 2px, transparent 4px),
-    repeating-linear-gradient(-45deg, rgba(20,45,70,0.15) 0px, rgba(20,45,70,0.15) 2px, transparent 2px, transparent 4px);
-  border-top: 2px dashed #e6f5ff;
-  border-bottom: 2px dashed #e6f5ff;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.15);
-}
+/* =================================
+   4. ABOUT ME
+================================= */
 
-/* ================= SECTION 2: ABOUT ME ================= */
-.about {
-  background: #7bc1eb;
-  padding: 90px 10%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 70px;
-  flex-wrap: wrap;
-  position: relative;
-}
+.about-section {
+    min-height: 470px;
+    padding: 65px 6%;
 
-.pic-wrapper {
-  position: relative;
-  cursor: pointer;
-}
-
-/* Denim Circular Frame */
-.denim-frame {
-  padding: 14px;
-  border-radius: 50%;
-  background-color: #4f80a8;
-  background-image: 
-    repeating-linear-gradient(45deg, rgba(255,255,255,0.15) 0px, rgba(255,255,255,0.15) 2px, transparent 2px, transparent 4px),
-    repeating-linear-gradient(-45deg, rgba(15,35,55,0.2) 0px, rgba(15,35,55,0.2) 2px, transparent 2px, transparent 4px);
-  border: 3px dashed #dcf2ff;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-  transition: transform 0.3s ease;
-}
-
-.profile-pic {
-  width: 240px;
-  height: 240px;
-  border-radius: 50%;
-  object-fit: cover;
-  display: block;
-  border: 2px solid #fff;
-}
-
-.pic-wrapper:hover .denim-frame {
-  transform: scale(1.05);
-}
-
-.pic-hint {
-  display: block;
-  text-align: center;
-  font-size: 0.9rem;
-  margin-top: 10px;
-  color: #e8f7ff;
-  font-weight: 700;
-}
-
-.cat-sticker {
-  position: absolute;
-  bottom: 12px;
-  left: -25px;
-  width: 105px;
-  pointer-events: none;
-}
-
-.about-text h2 {
-  font-size: clamp(2.5rem, 5vw, 3.8rem);
-  margin-bottom: 15px;
-}
-
-.about-text p {
-  max-width: 480px;
-  font-size: 1.15rem;
-  line-height: 1.6;
-  color: #f0f9ff;
-}
-
-/* ================= SECTION 3: INTERESTS / KDRAMAS ================= */
-.interests {
-  background: #3d9be0;
-  padding: 95px 8%;
-  text-align: center;
-  position: relative;
-}
-
-.posters-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 50px;
-  height: 250px;
-}
-
-.poster-card {
-  width: 155px;
-  height: 215px;
-  object-fit: cover;
-  border: 5px solid #ffffff;
-  border-radius: 4px;
-  box-shadow: 0 8px 18px rgba(0,0,0,0.3);
-  transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  cursor: pointer;
-  position: relative;
-}
-
-.poster-1 {
-  transform: rotate(-12deg) translateX(25px);
-  z-index: 1;
-}
-
-.poster-2 {
-  transform: rotate(0deg) translateY(-10px);
-  z-index: 2;
-}
-
-.poster-3 {
-  transform: rotate(12deg) translateX(-25px);
-  z-index: 3;
-}
-
-.poster-card:hover {
-  transform: rotate(0deg) scale(1.22) translateY(-15px);
-  z-index: 50;
-  box-shadow: 0 15px 30px rgba(0,0,0,0.45);
-}
-
-.kdrama-link {
-  text-decoration: none;
-  color: #fff;
-  display: inline-block;
-  transition: transform 0.25s ease;
-}
-
-.kdrama-link h2 {
-  font-size: clamp(2rem, 4.5vw, 3.2rem);
-  line-height: 1.2;
-}
-
-.kdrama-link:hover {
-  transform: scale(1.05);
-}
-
-/* ================= MODAL ================= */
-.modal {
-  display: none;
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.85);
-  justify-content: center;
-  align-items: center;
-  z-index: 2000;
-  padding: 20px;
-}
-
-.modal img {
-  max-width: 90%;
-  max-height: 80vh;
-  border-radius: 15px;
-  border: 5px solid #fff;
-}
-
-.close-modal {
-  position: absolute;
-  top: 25px;
-  right: 30px;
-  font-size: 2.5rem;
-  color: #fff;
-  cursor: pointer;
-}
-
-/* ================= MOBILE RESPONSIVE (PHONE VIEW) ================= */
-@media (max-width: 850px) {
-  .menu-toggle {
     display: flex;
-  }
+    align-items: center;
+    justify-content: center;
+    gap: 55px;
 
-  .nav-links {
+    background: var(--sky-blue);
+
+    border-top: 12px solid #A8CDEB;
+    border-bottom: 12px solid #A8CDEB;
+
+    scroll-margin-top: 75px;
+}
+
+.about-picture {
+    position: relative;
+    flex: 1;
+    max-width: 350px;
+}
+
+.profile-placeholder {
+    width: 260px;
+    height: 260px;
+    max-width: 100%;
+
+    margin: auto;
+
+    display: grid;
+    place-items: center;
+
+    border: 12px solid #A4C8E8;
+    border-radius: 50%;
+
+    background: #5793CB;
+    color: white;
+    font-size: 14px;
+
+    box-shadow: 0 5px 15px rgba(23, 63, 120, 0.2);
+}
+
+.cat-decoration {
     position: absolute;
-    top: 65px;
-    right: 5%;
-    background: #5ba4d4;
-    flex-direction: column;
-    padding: 20px 30px;
-    border-radius: 15px;
-    border: 2px dashed #fff;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-    display: none;
-  }
+    bottom: -45px;
+    left: -5px;
+    font-size: 85px;
+}
 
-  .nav-links.active {
-    display: flex;
-  }
+.about-content {
+    flex: 1.5;
+    max-width: 650px;
+}
 
-  .desktop-bear {
-    display: none;
-  }
+.about-content h2 {
+    color: white;
+    font-size: clamp(35px, 5vw, 58px);
+    margin-bottom: 25px;
 
-  /* Sa mobile, babalik sa center ang Hero para hindi masikip */
-  .hero {
-    justify-content: center;
-    padding-bottom: 160px;
-  }
+    -webkit-text-stroke: 1px #5793CB;
+    text-shadow: 3px 3px 0 #5793CB;
+}
 
-  .hero-content {
-    width: 100%;
-  }
+.about-paper {
+    padding: 20px;
+    background: white;
+    border-radius: 9px;
 
-  .btn-wrapper {
-    justify-content: center;
-  }
+    font-size: 14px;
+    line-height: 1.8;
+    font-weight: 600;
+}
 
-  .bg-stripes {
-    width: 100%;
-    opacity: 0.5;
-  }
-
-  .about {
-    text-align: center;
-    gap: 35px;
-  }
-
-  .poster-card {
-    width: 115px;
-    height: 165px;
-  }
+.about-paper p + p {
+    margin-top: 18px;
 }
 
 
+/* =================================
+   5. K-DRAMA INTRODUCTION
+================================= */
+
+.interest-section {
+    min-height: 580px;
+    padding: 100px 5%;
+
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 45px;
+
+    background-color: var(--medium-blue);
+
+    background-image:
+        linear-gradient(
+            90deg,
+            transparent 48%,
+            rgba(255,255,255,0.08) 50%,
+            transparent 52%
+        );
+
+    scroll-margin-top: 75px;
+}
+
+.drama-preview {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    max-width: 600px;
+}
+
+.preview-card {
+    width: 32%;
+    min-height: 200px;
+    padding: 10px;
+
+    display: grid;
+    place-items: center;
+
+    background: white;
+    border: 6px solid white;
+
+    box-shadow: 4px 7px 12px rgba(0,0,0,0.25);
+
+    color: var(--dark-blue);
+    text-align: center;
+    font-size: 13px;
+
+    transition: transform 0.3s ease;
+}
+
+.card-one {
+    transform: rotate(-10deg);
+}
+
+.card-two {
+    transform: rotate(2deg);
+    z-index: 2;
+}
+
+.card-three {
+    transform: rotate(10deg);
+}
+
+.preview-card:hover {
+    transform: translateY(-12px) rotate(0deg);
+    z-index: 3;
+}
+
+.drama-link {
+    color: white;
+    font-size: clamp(24px, 4vw, 42px);
+    font-weight: 800;
+    text-align: center;
+
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 7px;
+
+    text-shadow: 2px 3px 0 #326FA8;
+
+    transition: 0.3s ease;
+}
+
+.drama-link:hover {
+    color: var(--light-blue);
+    transform: scale(1.04);
+}
+
+.interest-note {
+    color: white;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 20px;
+}
+
+.interest-decor {
+    position: absolute;
+    color: #2478BD;
+    font-size: 110px;
+    opacity: 0.65;
+}
+
+.star-one {
+    top: 20px;
+    left: 3%;
+}
+
+.star-two {
+    bottom: 15px;
+    right: 4%;
+}
 
 
+/* =================================
+   6. MOBILE RESPONSIVENESS
+================================= */
+
+@media (max-width: 700px) {
+
+    .navbar {
+        min-height: 65px;
+        padding: 10px 5%;
+    }
+
+    .archive {
+        font-size: 14px;
+    }
+
+    .teddy {
+        margin-left: auto;
+        margin-right: 18px;
+        font-size: 30px;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+
+        position: absolute;
+        top: 65px;
+        right: 5%;
+
+        width: 180px;
+        padding: 25px 15px;
+
+        flex-direction: column;
+        gap: 22px;
+
+        background: rgba(87, 147, 203, 0.97);
+        border: 2px dashed white;
+        border-radius: 18px;
+
+        box-shadow: 0 7px 15px rgba(0,0,0,0.2);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links a {
+        font-size: 22px;
+    }
 
 
+    /* HERO MOBILE */
 
+    .hero {
+        min-height: 490px;
+        padding: 45px 5%;
+        justify-content: center;
+    }
+
+    .hero-decoration {
+        left: -230px;
+        opacity: 0.8;
+    }
+
+    .hero-bunny {
+        bottom: 10px;
+        left: -5px;
+        font-size: 95px;
+        opacity: 0.95;
+    }
+
+    .hero-content {
+        width: 100%;
+        padding-left: 25px;
+    }
+
+    .welcome {
+        font-size: 10px;
+    }
+
+    .hero h1 {
+        font-size: clamp(36px, 10vw, 55px);
+    }
+
+    .hero-description {
+        font-size: 12px;
+        padding: 12px;
+        margin-top: 25px;
+    }
+
+
+    /* ABOUT MOBILE */
+
+    .about-section {
+        padding: 45px 6%;
+        flex-direction: column;
+        gap: 35px;
+        text-align: center;
+    }
+
+    .about-picture {
+        width: 100%;
+    }
+
+    .profile-placeholder {
+        width: 210px;
+        height: 210px;
+    }
+
+    .cat-decoration {
+        left: 3%;
+        bottom: -35px;
+        font-size: 65px;
+    }
+
+    .about-content h2 {
+        font-size: 39px;
+    }
+
+    .about-paper {
+        font-size: 12px;
+        text-align: left;
+    }
+
+
+    /* KDRAMA MOBILE */
+
+    .interest-section {
+        min-height: 480px;
+        padding: 75px 5%;
+        gap: 40px;
+    }
+
+    .preview-card {
+        min-height: 130px;
+        font-size: 10px;
+        padding: 5px;
+    }
+
+    .drama-link {
+        font-size: clamp(23px, 6vw, 32px);
+    }
+
+    .interest-note {
+        font-size: 17px;
+    }
+
+}
