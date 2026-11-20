@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Little Space of Mine</title>
+  <link href="https://googleapis.com" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- NAVIGATION BAR -->
+  <nav>
+    <a href="#home" class="logo">ARCHIVE</a>
+
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <img src="https://placehold.co🧸" alt="Bear" class="nav-bear">
+    </div>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" onclick="toggleMenu()">Home</a></li>
+      <li><a href="#about" onclick="toggleMenu()">About</a></li>
+      <li><a href="#interest" onclick="toggleMenu()">Interest</a></li>
+      <li class="desktop-bear">
+        <img src="https://placehold.co🧸" alt="Bear" class="nav-bear">
+      </li>
+    </ul>
+  </nav>
+
+  <!-- SECTION 1: HOME / HERO -->
+  <section id="home" class="hero">
+    <!-- White geometric stripes sa likod ng bunny (Pure CSS) -->
+    <div class="bg-stripes">
+      <div class="stripe s1"></div>
+      <div class="stripe s2"></div>
+      <div class="stripe s3"></div>
+    </div>
+
+    <!-- Bunny sa kaliwa -->
+    <img src="https://placehold.co🐰+Bunny" alt="Bunny Sticker" class="bunny-sticker">
+
+    <!-- Content na nakagilid sa kanan kapag Desktop -->
+    <div class="hero-content">
+      <h1 class="title-outline">A LITTLE SPACE<br>OF MINE</h1>
+      
+      <div class="intro-box">
+        A personal website featuring my interests, favorite K-dramas, K-pop groups, music, and other little things that make me happy.
+      </div>
+
+      <div class="btn-wrapper">
+        <a href="#about" class="btn-explore">Explore</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DENIM STITCHED DIVIDER -->
+  <div class="denim-divider"></div>
+
+  <!-- SECTION 2: ABOUT ME -->
+  <section id="about" class="about">
+    <div class="pic-wrapper" onclick="openPic()">
+      <!-- Denim circular frame -->
+      <div class="denim-frame">
+        <img src="https://placehold.co" alt="My Picture" class="profile-pic" id="myProfilePic">
+      </div>
+      <span class="pic-hint">(Click photo to view)</span>
+      <img src="https://placehold.co🐈‍⬛" alt="Black Cat" class="cat-sticker">
+    </div>
+
+    <div class="about-text">
+      <h2 class="title-outline">ABOUT ME</h2>
+      <p>Hi! Welcome to my cozy corner on the internet. Dito mo makikita lahat ng mga bagay na nagpapasaya sa akin—mula sa music hanggang sa late-night K-drama marathons!</p>
+    </div>
+  </section>
+
+  <!-- DENIM STITCHED DIVIDER -->
+  <div class="denim-divider"></div>
+
+  <!-- SECTION 3: INTERESTS / KDRAMAS -->
+  <section id="interest" class="interests">
+    <div class="posters-container">
+      <img src="https://placehold.co" alt="Twenty Five Twenty One" class="poster-card poster-1">
+      <img src="https://placehold.co" alt="Welcome to Waikiki" class="poster-card poster-2">
+      <img src="https://placehold.co" alt="Twinkling Watermelon" class="poster-card poster-3">
+    </div>
+
+    <a href="kdramas.html" class="kdrama-link">
+      <h2 class="title-outline">WANNA KNOW 'BOUT<br>KDRAMAS I WATCH?</h2>
+    </a>
+  </section>
+
+  <!-- MODAL PARA SA PROFILE PIC -->
+  <div class="modal" id="picModal" onclick="closePic()">
+    <span class="close-modal">&times;</span>
+    <img id="modalImg" src="" alt="Full View">
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
