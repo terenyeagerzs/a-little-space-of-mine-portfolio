@@ -1,5 +1,5 @@
 // ==========================================
-// 1. MOBILE HAMBURGER MENU
+// 1. MOBILE HAMBURGER MENU (Gagana sa lahat ng pages)
 // ==========================================
 const hamburgerBtn = document.getElementById('hamburger-btn');
 const navMenu = document.getElementById('nav-menu');
@@ -13,12 +13,12 @@ if (hamburgerBtn && navMenu) {
 
 document.querySelectorAll('.nav-link').forEach(link => {
   link.addEventListener('click', () => {
-    navMenu.classList.remove('active');
+    if (navMenu) navMenu.classList.remove('active');
   });
 });
 
 // ==========================================
-// 2. PAGLIPAT NG VIEWS (SINGLE-PAGE FEEL)
+// 2. VIEW SWITCHING SA INTEREST.HTML
 // ==========================================
 const allViews = document.querySelectorAll('.page-view');
 
@@ -26,117 +26,107 @@ function showView(viewId) {
   allViews.forEach(view => {
     view.style.display = 'none';
   });
-  document.getElementById(viewId).style.display = 'block';
-  navMenu.classList.remove('active');
+  const target = document.getElementById(viewId);
+  if (target) target.style.display = 'block';
 }
 
-// Nav links papunta sa Home View (ARCHIVE, Home, About, Interest preview)
-document.querySelectorAll('.nav-home').forEach(link => {
-  link.addEventListener('click', () => {
-    showView('home-view');
-  });
-});
-
-// Clickable words papunta sa Top 12 K-Dramas View
-document.getElementById('open-kdrama-view').addEventListener('click', (e) => {
-  e.preventDefault();
-  showView('interest-view');
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-
-// Back to Groups button
 document.querySelectorAll('.back-to-groups').forEach(btn => {
   btn.addEventListener('click', (e) => {
     e.preventDefault();
     showView('interest-view');
-    document.getElementById('kpop-groups').scrollIntoView({ behavior: 'smooth' });
+    const groupsSec = document.getElementById('kpop-groups');
+    if (groupsSec) groupsSec.scrollIntoView({ behavior: 'smooth' });
   });
 });
 
 // ==========================================
-// 3. K-POP GROUP FOLDERS & BIAS SWITCHING
+// 3. K-POP FOLDERS & BIAS SWITCHING
 // ==========================================
-// Open KIOF Folder
-document.getElementById('open-kiof-folder').addEventListener('click', () => {
-  showView('kiof-folder-view');
-  document.getElementById('kiof-group-part').style.display = 'block';
-  document.getElementById('kiof-bias-part').style.display = 'none';
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-document.getElementById('show-kiof-bias').addEventListener('click', (e) => {
-  e.preventDefault();
-  document.getElementById('kiof-group-part').style.display = 'none';
-  document.getElementById('kiof-bias-part').style.display = 'block';
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-document.getElementById('back-to-kiof-group').addEventListener('click', (e) => {
-  e.preventDefault();
-  document.getElementById('kiof-bias-part').style.display = 'none';
-  document.getElementById('kiof-group-part').style.display = 'block';
-});
+const openKiof = document.getElementById('open-kiof-folder');
+if (openKiof) {
+  openKiof.addEventListener('click', () => {
+    showView('kiof-folder-view');
+    document.getElementById('kiof-group-part').style.display = 'block';
+    document.getElementById('kiof-bias-part').style.display = 'none';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+  document.getElementById('show-kiof-bias').addEventListener('click', (e) => {
+    e.preventDefault();
+    document.getElementById('kiof-group-part').style.display = 'none';
+    document.getElementById('kiof-bias-part').style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+  document.getElementById('back-to-kiof-group').addEventListener('click', (e) => {
+    e.preventDefault();
+    document.getElementById('kiof-bias-part').style.display = 'none';
+    document.getElementById('kiof-group-part').style.display = 'block';
+  });
+}
 
-// Open UNIS Folder
-document.getElementById('open-unis-folder').addEventListener('click', () => {
-  showView('unis-folder-view');
-  document.getElementById('unis-group-part').style.display = 'block';
-  document.getElementById('unis-bias-part').style.display = 'none';
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-document.getElementById('show-unis-bias').addEventListener('click', (e) => {
-  e.preventDefault();
-  document.getElementById('unis-group-part').style.display = 'none';
-  document.getElementById('unis-bias-part').style.display = 'block';
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-document.getElementById('back-to-unis-group').addEventListener('click', (e) => {
-  e.preventDefault();
-  document.getElementById('unis-bias-part').style.display = 'none';
-  document.getElementById('unis-group-part').style.display = 'block';
-});
+const openUnis = document.getElementById('open-unis-folder');
+if (openUnis) {
+  openUnis.addEventListener('click', () => {
+    showView('unis-folder-view');
+    document.getElementById('unis-group-part').style.display = 'block';
+    document.getElementById('unis-bias-part').style.display = 'none';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+  document.getElementById('show-unis-bias').addEventListener('click', (e) => {
+    e.preventDefault();
+    document.getElementById('unis-group-part').style.display = 'none';
+    document.getElementById('unis-bias-part').style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+  document.getElementById('back-to-unis-group').addEventListener('click', (e) => {
+    e.preventDefault();
+    document.getElementById('unis-bias-part').style.display = 'none';
+    document.getElementById('unis-group-part').style.display = 'block';
+  });
+}
 
-// Open AHOF Folder
-document.getElementById('open-ahof-folder').addEventListener('click', () => {
-  showView('ahof-folder-view');
-  document.getElementById('ahof-group-part').style.display = 'block';
-  document.getElementById('ahof-bias-part').style.display = 'none';
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-document.getElementById('show-ahof-bias').addEventListener('click', (e) => {
-  e.preventDefault();
-  document.getElementById('ahof-group-part').style.display = 'none';
-  document.getElementById('ahof-bias-part').style.display = 'block';
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-document.getElementById('back-to-ahof-group').addEventListener('click', (e) => {
-  e.preventDefault();
-  document.getElementById('ahof-bias-part').style.display = 'none';
-  document.getElementById('ahof-group-part').style.display = 'block';
-});
+const openAhof = document.getElementById('open-ahof-folder');
+if (openAhof) {
+  openAhof.addEventListener('click', () => {
+    showView('ahof-folder-view');
+    document.getElementById('ahof-group-part').style.display = 'block';
+    document.getElementById('ahof-bias-part').style.display = 'none';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+  document.getElementById('show-ahof-bias').addEventListener('click', (e) => {
+    e.preventDefault();
+    document.getElementById('ahof-group-part').style.display = 'none';
+    document.getElementById('ahof-bias-part').style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+  document.getElementById('back-to-ahof-group').addEventListener('click', (e) => {
+    e.preventDefault();
+    document.getElementById('ahof-bias-part').style.display = 'none';
+    document.getElementById('ahof-group-part').style.display = 'block';
+  });
+}
 
 // ==========================================
 // 4. K-DRAMA RATING & REVIEW MODAL
 // ==========================================
 const reviewModal = document.getElementById('review-modal');
-const modalImg = document.getElementById('modal-img');
-const modalRating = document.getElementById('modal-rating');
-const modalText = document.getElementById('modal-text');
-
-document.querySelectorAll('.drama-card').forEach(card => {
-  card.addEventListener('click', () => {
-    modalImg.src = card.getAttribute('data-poster');
-    modalRating.textContent = card.getAttribute('data-rating');
-    modalText.textContent = card.getAttribute('data-review');
-    reviewModal.style.display = 'flex';
+if (reviewModal) {
+  document.querySelectorAll('.drama-card').forEach(card => {
+    card.addEventListener('click', () => {
+      document.getElementById('modal-img').src = card.getAttribute('data-poster');
+      document.getElementById('modal-rating').textContent = card.getAttribute('data-rating');
+      document.getElementById('modal-text').textContent = card.getAttribute('data-review');
+      reviewModal.style.display = 'flex';
+    });
   });
-});
 
-document.getElementById('close-modal').addEventListener('click', () => {
-  reviewModal.style.display = 'none';
-});
+  document.getElementById('close-modal').addEventListener('click', () => {
+    reviewModal.style.display = 'none';
+  });
 
-document.getElementById('modal-say-btn').addEventListener('click', () => {
-  reviewModal.style.display = 'none';
-});
+  document.getElementById('modal-say-btn').addEventListener('click', () => {
+    reviewModal.style.display = 'none';
+  });
+}
 
 // ==========================================
 // 5. MUSIC PLAYER & TOP 5 PLAYLIST
@@ -167,13 +157,16 @@ document.querySelectorAll('.song-item').forEach(item => {
 // ==========================================
 // 6. WHAT'S YOUR SAY? COMMENT SECTION
 // ==========================================
-document.getElementById('comment-form').addEventListener('submit', (e) => {
-  e.preventDefault();
-  const name = document.getElementById('comment-name').value;
-  const msg = document.getElementById('comment-input').value;
-  const bubble = document.createElement('div');
-  bubble.className = 'comment-bubble';
-  bubble.innerHTML = `<strong>${name}:</strong> ${msg}`;
-  document.getElementById('comments-list').appendChild(bubble);
-  e.target.reset();
-});
+const commentForm = document.getElementById('comment-form');
+if (commentForm) {
+  commentForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = document.getElementById('comment-name').value;
+    const msg = document.getElementById('comment-input').value;
+    const bubble = document.createElement('div');
+    bubble.className = 'comment-bubble';
+    bubble.innerHTML = `<strong>${name}:</strong> ${msg}`;
+    document.getElementById('comments-list').appendChild(bubble);
+    e.target.reset();
+  });
+}
