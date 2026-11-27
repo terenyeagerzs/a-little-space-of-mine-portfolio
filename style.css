@@ -335,6 +335,42 @@ img {
   border-radius: 4px;
 }
 
+/* WANNA RECO ME SOME + SOCIALS BOX SA BABA NG TOP 12 */
+.reco-socials-box {
+  margin-top: 45px;
+  padding: 24px 20px;
+  background: rgba(255, 255, 255, 0.88);
+  border: 2px dashed #60a5fa;
+  border-radius: 20px;
+  display: inline-block;
+}
+
+.socials-heading {
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1e3a8a;
+  letter-spacing: 1px;
+  margin-bottom: 14px;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  font-size: 1.8rem;
+  color: #1d4ed8;
+}
+
+.social-icons a {
+  transition: 0.2s ease;
+}
+
+.social-icons a:hover {
+  transform: scale(1.15);
+  color: #1e3a8a;
+}
+
 .kpop-subtext {
   font-weight: 700;
   color: #1d4ed8;
@@ -694,22 +730,8 @@ img {
   font-family: 'Patrick Hand', cursive;
   font-size: 1.4rem;
   max-width: 700px;
-  margin: 0 auto 25px;
+  margin: 0 auto;
   color: #1e3a8a;
-}
-
-.socials-heading {
-  font-weight: 700;
-  letter-spacing: 1px;
-  margin-bottom: 14px;
-}
-
-.social-icons {
-  display: flex;
-  justify-content: center;
-  gap: 22px;
-  font-size: 1.7rem;
-  color: #1d4ed8;
 }
 
 /* ========================================== */
