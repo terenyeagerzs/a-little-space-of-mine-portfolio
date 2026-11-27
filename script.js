@@ -1,5 +1,5 @@
 // ==========================================
-// 1. MOBILE HAMBURGER MENU (Gagana sa lahat ng pages)
+// 1. MOBILE HAMBURGER MENU
 // ==========================================
 const hamburgerBtn = document.getElementById('hamburger-btn');
 const navMenu = document.getElementById('nav-menu');
@@ -22,6 +22,7 @@ document.querySelectorAll('.nav-link').forEach(link => {
 // ==========================================
 const allViews = document.querySelectorAll('.page-view');
 
+/** @param {string} viewId */
 function showView(viewId) {
   allViews.forEach(view => {
     view.style.display = 'none';
