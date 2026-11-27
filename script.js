@@ -1,128 +1,168 @@
-// Shared interactions for A Little Space of Mine
+// ==========================================
+// 1. MOBILE HAMBURGER MENU
+// ==========================================
+const hamburgerBtn = document.getElementById('hamburger-btn');
+const navMenu = document.getElementById('nav-menu');
 
-// Mobile navigation
-const menuButton = document.querySelector(".menu-button");
-const siteNav = document.querySelector(".site-nav");
+hamburgerBtn.addEventListener('click', () => {
+  navMenu.classList.toggle('active');
+});
 
-if (menuButton && siteNav) {
-  menuButton.addEventListener("click", () => {
-    const open = siteNav.classList.toggle("is-open");
-    menuButton.setAttribute("aria-expanded", String(open));
-    menuButton.setAttribute(
-      "aria-label",
-      open ? "Close navigation" : "Open navigation"
-    );
+// ==========================================
+// 2. PAGLIPAT NG VIEWS (SINGLE-PAGE FEEL)
+// ==========================================
+const allViews = document.querySelectorAll('.page-view');
+
+function showView(viewId) {
+  allViews.forEach(view => {
+    view.style.display = 'none';
   });
-
-  siteNav.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
-      siteNav.classList.remove("is-open");
-      menuButton.setAttribute("aria-expanded", "false");
-    });
-  });
-
-  document.addEventListener("click", (event) => {
-    if (!siteNav.contains(event.target) && !menuButton.contains(event.target)) {
-      siteNav.classList.remove("is-open");
-      menuButton.setAttribute("aria-expanded", "false");
-    }
-  });
+  document.getElementById(viewId).style.display = 'block';
+  navMenu.classList.remove('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// K-drama review modal (only exists on kdramas.html)
-const modal = document.getElementById("dramaModal");
-if (modal) {
-  const modalTitle = document.getElementById("modalTitle");
-  const modalYear = document.getElementById("modalYear");
-  const modalRating = document.getElementById("modalRating");
-  const modalReview = document.getElementById("modalReview");
-  const modalImage = document.getElementById("modalImage");
-
-  document.querySelectorAll(".drama-tile").forEach((tile) => {
-    tile.addEventListener("click", () => {
-      modalTitle.textContent = tile.dataset.title;
-      modalYear.textContent = tile.dataset.year;
-      modalRating.textContent = "Rating: " + tile.dataset.rating;
-      modalReview.textContent = tile.dataset.review;
-      const image = tile.dataset.image;
-      if (image) {
-        modalImage.src = image;
-        modalImage.style.display = "block";
-      } else {
-        modalImage.style.display = "none";
-      }
-      modal.classList.add("open");
-      modal.setAttribute("aria-hidden", "false");
-      document.body.style.overflow = "hidden";
-    });
+// Nav links papunta sa Home View (ARCHIVE, Home, About)
+document.querySelectorAll('.nav-home').forEach(link => {
+  link.addEventListener('click', () => {
+    showView('home-view');
   });
+});
 
-  const closeModal = () => {
-    modal.classList.remove("open");
-    modal.setAttribute("aria-hidden", "true");
-    document.body.style.overflow = "";
-  };
-
-  modal.querySelectorAll("[data-close-modal]").forEach((button) => {
-    button.addEventListener("click", closeModal);
+// Nav link & Clickable words papunta sa Interest View (Top 12 K-Dramas)
+document.querySelectorAll('.nav-interest, #open-kdrama-view').forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    showView('interest-view');
   });
+});
 
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") closeModal();
+// Back to Groups button
+document.querySelectorAll('.back-to-groups').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    showView('interest-view');
   });
-}
+});
 
-// Simple player controls: connect your own permitted audio files here.
-// This starter intentionally does not include copyrighted songs.
-const tracks = [
-  { title: "Your song 1", src: "assets/audio/track-1.mp3" },
-  { title: "Your song 2", src: "assets/audio/track-2.mp3" },
-  { title: "Your song 3", src: "assets/audio/track-3.mp3" },
-  { title: "Your song 4", src: "assets/audio/track-4.mp3" },
-];
-const audio = new Audio();
-let currentTrack = 0;
-const trackName = document.getElementById("trackName");
-const playButton = document.getElementById("playTrack");
-const playerMessage = document.getElementById("playerMessage");
+// ==========================================
+// 3. K-POP GROUP FOLDERS & BIAS SWITCHING
+// ==========================================
+// Open KIOF Folder
+document.getElementById('open-kiof-folder').addEventListener('click', () => {
+  showView('kiof-folder-view');
+  document.getElementById('kiof-group-part').style.display = 'block';
+  document.getElementById('kiof-bias-part').style.display = 'none';
+});
+document.getElementById('show-kiof-bias').addEventListener('click', (e) => {
+  e.preventDefault();
+  document.getElementById('kiof-group-part').style.display = 'none';
+  document.getElementById('kiof-bias-part').style.display = 'block';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+document.getElementById('back-to-kiof-group').addEventListener('click', (e) => {
+  e.preventDefault();
+  document.getElementById('kiof-bias-part').style.display = 'none';
+  document.getElementById('kiof-group-part').style.display = 'block';
+});
 
-function loadTrack(index, autoplay = false) {
-  currentTrack = (index + tracks.length) % tracks.length;
-  audio.src = tracks[currentTrack].src;
-  if (trackName) trackName.textContent = tracks[currentTrack].title;
-  if (playerMessage)
-    playerMessage.textContent =
-      "Add your own permitted audio files to assets/audio.";
-  if (autoplay) {
-    audio
-      .play()
-      .then(() => {
-        if (playButton) playButton.textContent = "Ⅱ";
-      })
-      .catch(() => {
-        if (playerMessage)
-          playerMessage.textContent =
-            "Add the audio file first, then press play.";
-      });
-  }
-}
-if (playButton) {
-  loadTrack(0);
-  playButton.addEventListener("click", () => {
-    if (!audio.src || audio.paused) {
-      loadTrack(currentTrack, true);
+// Open UNIS Folder
+document.getElementById('open-unis-folder').addEventListener('click', () => {
+  showView('unis-folder-view');
+  document.getElementById('unis-group-part').style.display = 'block';
+  document.getElementById('unis-bias-part').style.display = 'none';
+});
+document.getElementById('show-unis-bias').addEventListener('click', (e) => {
+  e.preventDefault();
+  document.getElementById('unis-group-part').style.display = 'none';
+  document.getElementById('unis-bias-part').style.display = 'block';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+document.getElementById('back-to-unis-group').addEventListener('click', (e) => {
+  e.preventDefault();
+  document.getElementById('unis-bias-part').style.display = 'none';
+  document.getElementById('unis-group-part').style.display = 'block';
+});
+
+// Open AHOF Folder
+document.getElementById('open-ahof-folder').addEventListener('click', () => {
+  showView('ahof-folder-view');
+  document.getElementById('ahof-group-part').style.display = 'block';
+  document.getElementById('ahof-bias-part').style.display = 'none';
+});
+document.getElementById('show-ahof-bias').addEventListener('click', (e) => {
+  e.preventDefault();
+  document.getElementById('ahof-group-part').style.display = 'none';
+  document.getElementById('ahof-bias-part').style.display = 'block';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+document.getElementById('back-to-ahof-group').addEventListener('click', (e) => {
+  e.preventDefault();
+  document.getElementById('ahof-bias-part').style.display = 'none';
+  document.getElementById('ahof-group-part').style.display = 'block';
+});
+
+// ==========================================
+// 4. K-DRAMA RATING & REVIEW MODAL
+// ==========================================
+const reviewModal = document.getElementById('review-modal');
+const modalImg = document.getElementById('modal-img');
+const modalRating = document.getElementById('modal-rating');
+const modalText = document.getElementById('modal-text');
+
+document.querySelectorAll('.drama-card').forEach(card => {
+  card.addEventListener('click', () => {
+    modalImg.src = card.getAttribute('data-poster');
+    modalRating.textContent = card.getAttribute('data-rating');
+    modalText.textContent = card.getAttribute('data-review');
+    reviewModal.style.display = 'flex';
+  });
+});
+
+document.getElementById('close-modal').addEventListener('click', () => {
+  reviewModal.style.display = 'none';
+});
+
+document.getElementById('modal-say-btn').addEventListener('click', () => {
+  reviewModal.style.display = 'none';
+});
+
+// ==========================================
+// 5. MUSIC PLAYER & TOP 5 PLAYLIST
+// ==========================================
+document.querySelectorAll('.play-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const audio = document.getElementById(btn.getAttribute('data-audio'));
+    if (audio.paused) {
+      document.querySelectorAll('.group-audio').forEach(a => a.pause());
+      audio.play();
     } else {
       audio.pause();
-      playButton.textContent = "▶";
     }
   });
-  document
-    .getElementById("nextTrack")
-    ?.addEventListener("click", () => loadTrack(currentTrack + 1, true));
-  document
-    .getElementById("prevTrack")
-    ?.addEventListener("click", () => loadTrack(currentTrack - 1, true));
-  audio.addEventListener("ended", () => loadTrack(currentTrack + 1, true));
-  audio.addEventListener("play", () => (playButton.textContent = "Ⅱ"));
-  audio.addEventListener("pause", () => (playButton.textContent = "▶"));
-}
+});
+
+document.querySelectorAll('.song-item').forEach(item => {
+  item.addEventListener('click', () => {
+    const audio = document.getElementById(item.getAttribute('data-audio'));
+    const titleEl = document.getElementById(item.getAttribute('data-title'));
+    document.querySelectorAll('.group-audio').forEach(a => a.pause());
+    audio.src = item.getAttribute('data-src');
+    titleEl.textContent = item.textContent.replace(/^\d+\.\s*/, '');
+    audio.play();
+  });
+});
+
+// ==========================================
+// 6. WHAT'S YOUR SAY? COMMENT SECTION
+// ==========================================
+document.getElementById('comment-form').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const name = document.getElementById('comment-name').value;
+  const msg = document.getElementById('comment-input').value;
+  const bubble = document.createElement('div');
+  bubble.className = 'comment-bubble';
+  bubble.innerHTML = `<strong>${name}:</strong> ${msg}`;
+  document.getElementById('comments-list').appendChild(bubble);
+  e.target.reset();
+});
