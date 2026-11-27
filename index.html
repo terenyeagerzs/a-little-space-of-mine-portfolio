@@ -63,7 +63,6 @@
         </div>
         
         <div class="interest-text">
-          <!-- Pinapalitan nito yung screen papunta sa K-Drama & K-Pop view -->
           <button type="button" id="open-kdrama-view" class="btn2">WANNA KNOW 'BOUT KDRAMAS I WATCH?</button>
         </div>
       </section>
@@ -84,7 +83,7 @@
         <h1>Top 12 So Far</h1>
 
         <div class="kdrama-grid">
-          <!-- K-DRAMA 1 (Nasa image na mismo yung title/director info card) -->
+          <!-- K-DRAMA 1 -->
           <div class="drama-card" 
                data-poster="waikiki-card.jpg" 
                data-rating="∞/10" 
@@ -155,7 +154,7 @@
         </div>
       </section>
 
-      <!-- SECTION B: ARE YOU INTO KPOP TOO? (Scrollable pababa) -->
+      <!-- SECTION B: ARE YOU INTO KPOP TOO? -->
       <section id="kpop-intro">
         <h2>ARE YOU INTO KPOP TOO?</h2>
         <p>HEY, WHAT GROUP DO YOU STAN? WANNA KNOW MINE?</p>
@@ -164,7 +163,7 @@
         </div>
       </section>
 
-      <!-- SECTION C: MY K-POP CORNER (Notebook Story) -->
+      <!-- SECTION C: MY K-POP CORNER -->
       <section id="kpop-corner">
         <h2>MY K-POP CORNER ♡</h2>
         <div class="kpop-story-box">
@@ -176,7 +175,7 @@
         <p class="view-why">view why.</p>
       </section>
 
-      <!-- SECTION D: K-POP GROUPS (Clickable Photos: Kiss of Life, UNIS, AHOF) -->
+      <!-- SECTION D: K-POP GROUPS (Clickable Photos) -->
       <section id="kpop-groups">
         <div class="group-card" id="group-kiof">
           <img src="kiof.jpg" alt="Kiss of Life">
@@ -201,15 +200,26 @@
     <!-- ============================================================ -->
     <div id="review-modal" class="modal" style="display: none;">
       <div class="modal-content">
-        <!-- Close button para makabalik sa pagpili ng K-drama -->
         <span class="close-btn" id="close-modal">&times;</span>
 
-        <!-- Kaliwa: Poster image lang (kasama na title/director sa picture) -->
         <div class="modal-poster">
           <img id="modal-img" src="" alt="Drama Card">
         </div>
 
-        <!-- Kanan: Rating, Review, at What's your say button -->
         <div class="modal-review">
           <div class="notebook-paper">
             <h3>Rating: <span id="modal-rating"></span></h3>
+            <p id="modal-text"></p>
+          </div>
+
+          <a href="#footer-contact" class="btn-say" id="modal-say-btn">
+            <i class="fa-solid fa-comment-dots"></i> What's your say?
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- FOOTER (Laging nakikita sa pinakababa)                       -->
+    <!-- ============================================================ -->
+    <footer id="footer-contact">
