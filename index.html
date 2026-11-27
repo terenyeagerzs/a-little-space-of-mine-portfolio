@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A Little Space of Mine</title>
     <link rel="stylesheet" href="style.css">
   </head>
@@ -12,56 +14,78 @@
         <a href="#main-page">ARCHIVE</a>
       </div>
 
-      <nav>
+      <!-- 3 Lines Button para sa Mobile -->
+      <div class="hamburger" id="hamburger-btn">
+        ☰
+      </div>
+
+      <!-- Navigation Links -->
+      <nav id="nav-menu">
         <ul>
           <li><a href="#main-page">Home</a></li>
-          <br>
           <li><a href="#about-me">About</a></li>
-          <br>
           <li><a href="#interest">Interest</a></li>
-        
+          <li class="mobile-only"><a href="#footer-contact">Contact</a></li>
         </ul>
       </nav>
     </header>
 
     <!-- Main Content -->
     <main>
+      <!-- 1. HERO BANNER -->
       <section id="main-page">
         <h1>A LITTLE SPACE OF MINE</h1>
-        <br>
         <div>
-          
-        <h3>Ilagay mo rito yung subtitle o intro mo</h3>
-       <br>
+          <h3>Ilagay mo rito yung subtitle o intro mo</h3>
           <a href="#about-me" class="btn1">Explore</a>
         </div>
       </section>
 
+      <!-- 2. ABOUT ME -->
       <section id="about-me"> 
-          <div class="about-image">
-          <img src="picture-mo.jpg" alt="My Photo">
-          </div>
-      <div class="about-text">
-        <h2>About Me </h2>
-        <br>
-        <p> hwwhuwhhw  </p>
-      </div>
+        <div class="about-image">
+          <img src="picture-mo.jpg" alt="Terenielle Photo">
+        </div>
+        <div class="about-text">
+          <h2>ABOUT ME</h2>
+          <p>Hi! I'm Terenielle, but you can call me...</p>
+          <p>This little website is where I keep some of my favorite things...</p>
+        </div>
       </section>
 
-    <section id="interest">
-      <div class="interest-image">
-        <img src="picture-mo.jpg" alt="My Photo">
-        <img src="picture-mo.jpg" alt="My Photo">
-        <img src="picture-mo.jpg" alt="My Photo">
-      </div>
-      
-       <div class="interest-text">
-         <a href="#interest" class="btn2">Wanna know 'bout kdramas i watch?</a>
-       </div>
+      <!-- 3. INTEREST (Link papunta sa other page) -->
+      <section id="interest">
+        <div class="interest-image">
+          <img src="2521.jpg" alt="Twenty Five Twenty One" class="poster-1">
+          <img src="waikiki.jpg" alt="Welcome to Waikiki" class="poster-2">
+          <img src="watermelon.jpg" alt="Twinkling Watermelon" class="poster-3">
+        </div>
+        
+        <div class="interest-text">
+          <a href="kdramas.html" class="btn2">WANNA KNOW 'BOUT KDRAMAS I WATCH?</a>
+        </div>
+      </section>
 
-      
-    </section>
+      <!-- 4. YUNG HULING SECTION ("Sometimes kinemerutz") -->
+      <section id="outro">
+        <h2>Sometimes...</h2>
+        <p>Ilagay mo rito yung closing message o random thoughts mo.</p>
+      </section>
     </main>
 
+    <!-- 5. FOOTER (Contacts) -->
+    <footer id="footer-contact">
+      <div class="footer-contacts">
+        <p>Connect with me:</p>
+        <ul>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">TikTok</a></li>
+          <li><a href="mailto:emailmo@gmail.com">Email</a></li>
+        </ul>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
   </body>
 </html>
+
