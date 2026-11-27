@@ -9,30 +9,30 @@
   </head>
   <body>
 
-    <!-- Top Navigation -->
+    <!-- TOP NAVIGATION (Laging nakikita kahit magpalit ng view) -->
     <header>
       <div class="logo">
-        <a href="#main-page">ARCHIVE</a>
+        <a href="#main-page" class="nav-home">ARCHIVE</a>
       </div>
 
-      <!-- 3 Lines Button para sa Mobile -->
       <div class="hamburger" id="hamburger-btn">
         ☰
       </div>
 
-      <!-- Navigation Links -->
       <nav id="nav-menu">
         <ul>
-          <li><a href="#main-page">Home</a></li>
-          <li><a href="#about-me">About</a></li>
-          <li><a href="#interest">Interest</a></li>
+          <li><a href="#main-page" class="nav-home">Home</a></li>
+          <li><a href="#about-me" class="nav-home">About</a></li>
+          <li><a href="#interest" class="nav-home">Interest</a></li>
           <li class="mobile-only"><a href="#footer-contact">Contact</a></li>
         </ul>
       </nav>
     </header>
 
-    <!-- Main Content -->
-    <main>
+    <!-- ========================================== -->
+    <!-- VIEW 1: MAIN HOME PAGE (Default na nakikita) -->
+    <!-- ========================================== -->
+    <main id="home-view">
       <!-- 1. HERO BANNER -->
       <section id="main-page">
         <h1>A LITTLE SPACE OF MINE</h1>
@@ -54,7 +54,7 @@
         </div>
       </section>
 
-      <!-- 3. INTEREST (Link papunta sa other page) -->
+      <!-- 3. INTEREST (Button para lumipat sa View 2) -->
       <section id="interest">
         <div class="interest-image">
           <img src="2521.jpg" alt="Twenty Five Twenty One" class="poster-1">
@@ -63,7 +63,8 @@
         </div>
         
         <div class="interest-text">
-          <a href="kdramas.html" class="btn2">WANNA KNOW 'BOUT KDRAMAS I WATCH?</a>
+          <!-- Pinapalitan nito yung screen papunta sa K-Drama & K-Pop view -->
+          <button type="button" id="open-kdrama-view" class="btn2">WANNA KNOW 'BOUT KDRAMAS I WATCH?</button>
         </div>
       </section>
 
@@ -73,32 +74,142 @@
       </section>
     </main>
 
-    <!-- 5. FOOTER (Clickable Social Icons) -->
-    <footer id="footer-contact">
-      <div class="footer-contacts">
-        <p><b>Connect with me:</b></p>
-        <ul>
-          <li>
-            <a href="https://m.me" target="_blank" aria-label="Messenger">
-              <i class="fa-brands fa-facebook-messenger"></i>
-            </a>
-          </li>
-          <li>
-            <a href="https://tiktok.com" target="_blank" aria-label="TikTok">
-              <i class="fa-brands fa-tiktok"></i>
-            </a>
-          </li>
-          <li>
-            <a href="mailto:yeloii0980@gmail.com" aria-label="Email">
-              <i class="fa-solid fa-envelope"></i>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </footer>
+    <!-- ============================================================ -->
+    <!-- VIEW 2: K-DRAMAS & K-POP PAGE (Lilitaw sa parehong window)   -->
+    <!-- ============================================================ -->
+    <main id="interest-view" style="display: none;">
+      
+      <!-- SECTION A: TOP 12 K-DRAMAS -->
+      <section id="top-kdramas">
+        <h1>Top 12 So Far</h1>
 
-    <script src="script.js"></script>
-  </body>
-</html>
+        <div class="kdrama-grid">
+          <!-- K-DRAMA 1 (Nasa image na mismo yung title/director info card) -->
+          <div class="drama-card" 
+               data-poster="waikiki-card.jpg" 
+               data-rating="∞/10" 
+               data-review="I laughed so much watching this! I'm usually into thriller, mystery, and fantasy fiction, so I honestly didn't expect to get this hooked. The character dynamics are just so good! One moment, you feel sad for them, and the next, you're laughing because of something completely unexpected. The story revolves around people who are somehow unlucky in achieving their dream careers, and everything that happens along the way is pure chaos.">
+            <img src="waikiki.jpg" alt="Welcome to Waikiki">
+          </div>
 
+          <!-- K-DRAMA 2 -->
+          <div class="drama-card" 
+               data-poster="2521-card.jpg" 
+               data-rating="10/10" 
+               data-review="Ilagay mo rito ang review mo...">
+            <img src="2521.jpg" alt="Twenty Five Twenty One">
+          </div>
 
+          <!-- K-DRAMA 3 -->
+          <div class="drama-card" 
+               data-poster="alchemy-card.jpg" 
+               data-rating="10/10" 
+               data-review="Ilagay mo rito ang review mo...">
+            <img src="alchemy.jpg" alt="Alchemy of Souls">
+          </div>
+
+          <!-- K-DRAMA 4 -->
+          <div class="drama-card" data-poster="kdrama4-card.jpg" data-rating="10/10" data-review="Review here...">
+            <img src="kdrama4.jpg" alt="K-Drama 4">
+          </div>
+
+          <!-- K-DRAMA 5 -->
+          <div class="drama-card" data-poster="woo-card.jpg" data-rating="10/10" data-review="Review here...">
+            <img src="woo.jpg" alt="Extraordinary Attorney Woo">
+          </div>
+
+          <!-- K-DRAMA 6 -->
+          <div class="drama-card" data-poster="kdrama6-card.jpg" data-rating="10/10" data-review="Review here...">
+            <img src="kdrama6.jpg" alt="K-Drama 6">
+          </div>
+
+          <!-- K-DRAMA 7 -->
+          <div class="drama-card" data-poster="weakhero-card.jpg" data-rating="10/10" data-review="Review here...">
+            <img src="weakhero.jpg" alt="Weak Hero Class 1">
+          </div>
+
+          <!-- K-DRAMA 8 -->
+          <div class="drama-card" data-poster="revenant-card.jpg" data-rating="10/10" data-review="Review here...">
+            <img src="revenant.jpg" alt="Revenant">
+          </div>
+
+          <!-- K-DRAMA 9 -->
+          <div class="drama-card" data-poster="kdrama9-card.jpg" data-rating="10/10" data-review="Review here...">
+            <img src="kdrama9.jpg" alt="K-Drama 9">
+          </div>
+
+          <!-- K-DRAMA 10 -->
+          <div class="drama-card" data-poster="watermelon-card.jpg" data-rating="10/10" data-review="Review here...">
+            <img src="watermelon.jpg" alt="Twinkling Watermelon">
+          </div>
+
+          <!-- K-DRAMA 11 -->
+          <div class="drama-card" data-poster="kdrama11-card.jpg" data-rating="10/10" data-review="Review here...">
+            <img src="kdrama11.jpg" alt="K-Drama 11">
+          </div>
+
+          <!-- K-DRAMA 12 -->
+          <div class="drama-card" data-poster="kdrama12-card.jpg" data-rating="10/10" data-review="Review here...">
+            <img src="kdrama12.jpg" alt="K-Drama 12">
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION B: ARE YOU INTO KPOP TOO? (Scrollable pababa) -->
+      <section id="kpop-intro">
+        <h2>ARE YOU INTO KPOP TOO?</h2>
+        <p>HEY, WHAT GROUP DO YOU STAN? WANNA KNOW MINE?</p>
+        <div class="ipod-graphic">
+          <img src="ipod.png" alt="iPod Illustration">
+        </div>
+      </section>
+
+      <!-- SECTION C: MY K-POP CORNER (Notebook Story) -->
+      <section id="kpop-corner">
+        <h2>MY K-POP CORNER ♡</h2>
+        <div class="kpop-story-box">
+          <p>Honestly, I wasn't really that into K-pop before. But everything changed when I discovered Universe Ticket. Back in Grade 10, waiting for every new episode became something I genuinely looked forward to. It was the first time I found myself getting so invested in a survival show, its contestants, and their journeys.</p>
+          <p>That's where I first noticed Gehlee. I don't really know how to explain it, but I've been drawn to her ever since. I admire how kind and confident she is, how she expresses herself, and how she knows when to stand up for herself. Watching her grow throughout the show and eventually debut with UNIS made me genuinely happy. Even when their contract came to an end, the memories and admiration stayed with me.</p>
+          <p>I guess Universe Ticket became my gateway to K-pop. What started as simply waiting for new episodes turned into discovering groups, appreciating different talents, and finding so much happiness in their music and performances. And honestly, I'm glad I got to experience all of it.</p>
+        </div>
+        <p class="stan-prompt">Let me introduce them to you why i stan them.</p>
+        <p class="view-why">view why.</p>
+      </section>
+
+      <!-- SECTION D: K-POP GROUPS (Clickable Photos: Kiss of Life, UNIS, AHOF) -->
+      <section id="kpop-groups">
+        <div class="group-card" id="group-kiof">
+          <img src="kiof.jpg" alt="Kiss of Life">
+          <h3>Kiss of Life</h3>
+        </div>
+
+        <div class="group-card" id="group-unis">
+          <img src="unis.jpg" alt="UNIS">
+          <h3>UNIS</h3>
+        </div>
+
+        <div class="group-card" id="group-ahof">
+          <img src="ahof.jpg" alt="AHOF">
+          <h3>AHOF</h3>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ============================================================ -->
+    <!-- POP-UP MODAL PARA SA K-DRAMA RATING & REVIEW                -->
+    <!-- ============================================================ -->
+    <div id="review-modal" class="modal" style="display: none;">
+      <div class="modal-content">
+        <!-- Close button para makabalik sa pagpili ng K-drama -->
+        <span class="close-btn" id="close-modal">&times;</span>
+
+        <!-- Kaliwa: Poster image lang (kasama na title/director sa picture) -->
+        <div class="modal-poster">
+          <img id="modal-img" src="" alt="Drama Card">
+        </div>
+
+        <!-- Kanan: Rating, Review, at What's your say button -->
+        <div class="modal-review">
+          <div class="notebook-paper">
+            <h3>Rating: <span id="modal-rating"></span></h3>
