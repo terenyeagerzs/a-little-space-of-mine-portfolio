@@ -1,225 +1,365 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Little Space of Mine</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cloudflare.com">
-  </head>
-  <body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Little Space of Mine</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cloudflare.com">
+</head>
+<body>
 
-    <!-- TOP NAVIGATION (Laging nakikita kahit magpalit ng view) -->
-    <header>
-      <div class="logo">
-        <a href="#main-page" class="nav-home">ARCHIVE</a>
+  <!-- TOP NAVIGATION -->
+  <header class="main-header">
+    <div class="logo">
+      <a href="#main-page" class="logo-text nav-home">ARCHIVE</a>
+    </div>
+    <div class="hamburger" id="hamburger-btn">☰</div>
+    <nav id="nav-menu" class="main-nav">
+      <ul>
+        <li><a href="#main-page" class="nav-link nav-home">Home</a></li>
+        <li><a href="#about-me" class="nav-link nav-home">About</a></li>
+        <li><a href="#top-kdramas" class="nav-link nav-interest">Interest</a></li>
+        <li class="mobile-only"><a href="#footer-contact" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- VIEW 1: MAIN HOME PAGE -->
+  <main id="home-view" class="page-view">
+    <section id="main-page" class="hero-section">
+      <img src="bunny.png" alt="Cute Bunny" class="sticker-bunny">
+      <h1 class="hero-title">A LITTLE SPACE OF MINE</h1>
+      <div class="hero-box">
+        <h3 class="hero-desc">A personal website featuring my interests, favorite K-dramas, K-pop groups, music, and other little things that make me happy.</h3>
+        <a href="#about-me" class="btn-explore">Explore</a>
       </div>
+    </section>
 
-      <div class="hamburger" id="hamburger-btn">
-        ☰
+    <section id="about-me" class="about-section">
+      <div class="about-image">
+        <img src="picture-mo.jpg" alt="Terenielle Photo" class="profile-pic">
+        <img src="black-cat.png" alt="Black Cat" class="sticker-cat">
+        <img src="sparkle.png" alt="Sparkle" class="sticker-sparkle">
       </div>
+      <div class="about-text">
+        <h2 class="section-heading">ABOUT ME</h2>
+        <p class="about-para">Hi! I'm Terenielle, but you can call me Yel. I'm someone who enjoys finding happiness in little things, whether it's listening to music, watching a good drama, or simply spending time doing things I love.</p>
+        <p class="about-para">This little website is where I keep some of my favorite things, from K-dramas and K-pop groups to songs I never get tired of listening to.</p>
+      </div>
+    </section>
 
-      <nav id="nav-menu">
-        <ul>
-          <li><a href="#main-page" class="nav-home">Home</a></li>
-          <li><a href="#about-me" class="nav-home">About</a></li>
-          <li><a href="#interest" class="nav-home">Interest</a></li>
-          <li class="mobile-only"><a href="#footer-contact">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
+    <section id="interest" class="interest-preview-section">
+      <div class="interest-image">
+        <img src="2521.jpg" alt="Twenty Five Twenty One" class="poster-1">
+        <img src="waikiki.jpg" alt="Welcome to Waikiki" class="poster-2">
+        <img src="watermelon.jpg" alt="Twinkling Watermelon" class="poster-3">
+      </div>
+      <div class="interest-text">
+        <a href="#top-kdramas" id="open-kdrama-view" class="clickable-words">WANNA KNOW 'BOUT KDRAMAS I WATCH?</a>
+      </div>
+    </section>
+  </main>
 
-    <!-- ========================================== -->
-    <!-- VIEW 1: MAIN HOME PAGE (Default na nakikita) -->
-    <!-- ========================================== -->
-    <main id="home-view">
-      <!-- 1. HERO BANNER -->
-      <section id="main-page">
-        <h1>A LITTLE SPACE OF MINE</h1>
-        <div>
-          <h3>A personal website featuring my interests, favorite K-dramas, K-pop groups, music, and other little things that make me happy.</h3>
-          <a href="#about-me" class="btn1">Explore</a>
+  <!-- VIEW 2: TOP 12 K-DRAMAS & K-POP CORNER -->
+  <main id="interest-view" class="page-view" style="display: none;">
+    <section id="top-kdramas" class="kdrama-section">
+      <h1 class="kdrama-title">Top 12 So Far</h1>
+      <div class="kdrama-grid">
+        <div class="drama-card" data-poster="waikiki-card.jpg" data-rating="∞/10" data-review="I laughed so much watching this! I'm usually into thriller, mystery, and fantasy fiction, so I honestly didn't expect to get this hooked. The character dynamics are just so good! One moment, you feel sad for them, and the next, you're laughing because of something completely unexpected. The story revolves around people who are somehow unlucky in achieving their dream careers, and everything that happens along the way is pure chaos.">
+          <img src="waikiki.jpg" alt="Welcome to Waikiki">
         </div>
-      </section>
-
-      <!-- 2. ABOUT ME -->
-      <section id="about-me"> 
-        <div class="about-image">
-          <img src="picture-mo.jpg" alt="Terenielle Photo">
+        <div class="drama-card" data-poster="2521-card.jpg" data-rating="10/10" data-review="Ilagay mo rito ang review mo...">
+          <img src="2521.jpg" alt="Twenty Five Twenty One">
         </div>
-        <div class="about-text">
-          <h2>ABOUT ME</h2>
-          <p>Hi! I'm Terenielle, but you can call me Yel. I'm someone who enjoys finding happiness in little things, whether it's listening to music, watching a good drama, or simply spending time doing things I love.</p>
-          <p>This little website is where I keep some of my favorite things, from K-dramas and K-pop groups to songs I never get tired of listening to.</p>
+        <div class="drama-card" data-poster="alchemy-card.jpg" data-rating="10/10" data-review="Ilagay mo rito ang review mo...">
+          <img src="alchemy.jpg" alt="Alchemy of Souls">
         </div>
-      </section>
-
-      <!-- 3. INTEREST (Button para lumipat sa View 2) -->
-      <section id="interest">
-        <div class="interest-image">
-          <img src="2521.jpg" alt="Twenty Five Twenty One" class="poster-1">
-          <img src="waikiki.jpg" alt="Welcome to Waikiki" class="poster-2">
-          <img src="watermelon.jpg" alt="Twinkling Watermelon" class="poster-3">
+        <div class="drama-card" data-poster="kdrama4-card.jpg" data-rating="10/10" data-review="Review here...">
+          <img src="kdrama4.jpg" alt="K-Drama 4">
         </div>
-        
-        <div class="interest-text">
-          <button type="button" id="open-kdrama-view" class="btn2">WANNA KNOW 'BOUT KDRAMAS I WATCH?</button>
+        <div class="drama-card" data-poster="woo-card.jpg" data-rating="10/10" data-review="Review here...">
+          <img src="woo.jpg" alt="Extraordinary Attorney Woo">
         </div>
-      </section>
-
-      <!-- 4. OUTRO SECTION -->
-      <section id="outro">
-        <h4>Sometimes, you discover artists because of their music, but end up staying because of the people they are and the happiness they bring.</h4> 
-      </section>
-    </main>
-
-    <!-- ============================================================ -->
-    <!-- VIEW 2: K-DRAMAS & K-POP PAGE (Lilitaw sa parehong window)   -->
-    <!-- ============================================================ -->
-    <main id="interest-view" style="display: none;">
-      
-      <!-- SECTION A: TOP 12 K-DRAMAS -->
-      <section id="top-kdramas">
-        <h1>Top 12 So Far</h1>
-
-        <div class="kdrama-grid">
-          <!-- K-DRAMA 1 -->
-          <div class="drama-card" 
-               data-poster="waikiki-card.jpg" 
-               data-rating="∞/10" 
-               data-review="I laughed so much watching this! I'm usually into thriller, mystery, and fantasy fiction, so I honestly didn't expect to get this hooked. The character dynamics are just so good! One moment, you feel sad for them, and the next, you're laughing because of something completely unexpected. The story revolves around people who are somehow unlucky in achieving their dream careers, and everything that happens along the way is pure chaos.">
-            <img src="waikiki.jpg" alt="Welcome to Waikiki">
-          </div>
-
-          <!-- K-DRAMA 2 -->
-          <div class="drama-card" 
-               data-poster="2521-card.jpg" 
-               data-rating="10/10" 
-               data-review="Ilagay mo rito ang review mo...">
-            <img src="2521.jpg" alt="Twenty Five Twenty One">
-          </div>
-
-          <!-- K-DRAMA 3 -->
-          <div class="drama-card" 
-               data-poster="alchemy-card.jpg" 
-               data-rating="10/10" 
-               data-review="Ilagay mo rito ang review mo...">
-            <img src="alchemy.jpg" alt="Alchemy of Souls">
-          </div>
-
-          <!-- K-DRAMA 4 -->
-          <div class="drama-card" data-poster="kdrama4-card.jpg" data-rating="10/10" data-review="Review here...">
-            <img src="kdrama4.jpg" alt="K-Drama 4">
-          </div>
-
-          <!-- K-DRAMA 5 -->
-          <div class="drama-card" data-poster="woo-card.jpg" data-rating="10/10" data-review="Review here...">
-            <img src="woo.jpg" alt="Extraordinary Attorney Woo">
-          </div>
-
-          <!-- K-DRAMA 6 -->
-          <div class="drama-card" data-poster="kdrama6-card.jpg" data-rating="10/10" data-review="Review here...">
-            <img src="kdrama6.jpg" alt="K-Drama 6">
-          </div>
-
-          <!-- K-DRAMA 7 -->
-          <div class="drama-card" data-poster="weakhero-card.jpg" data-rating="10/10" data-review="Review here...">
-            <img src="weakhero.jpg" alt="Weak Hero Class 1">
-          </div>
-
-          <!-- K-DRAMA 8 -->
-          <div class="drama-card" data-poster="revenant-card.jpg" data-rating="10/10" data-review="Review here...">
-            <img src="revenant.jpg" alt="Revenant">
-          </div>
-
-          <!-- K-DRAMA 9 -->
-          <div class="drama-card" data-poster="kdrama9-card.jpg" data-rating="10/10" data-review="Review here...">
-            <img src="kdrama9.jpg" alt="K-Drama 9">
-          </div>
-
-          <!-- K-DRAMA 10 -->
-          <div class="drama-card" data-poster="watermelon-card.jpg" data-rating="10/10" data-review="Review here...">
-            <img src="watermelon.jpg" alt="Twinkling Watermelon">
-          </div>
-
-          <!-- K-DRAMA 11 -->
-          <div class="drama-card" data-poster="kdrama11-card.jpg" data-rating="10/10" data-review="Review here...">
-            <img src="kdrama11.jpg" alt="K-Drama 11">
-          </div>
-
-          <!-- K-DRAMA 12 -->
-          <div class="drama-card" data-poster="kdrama12-card.jpg" data-rating="10/10" data-review="Review here...">
-            <img src="kdrama12.jpg" alt="K-Drama 12">
-          </div>
+        <div class="drama-card" data-poster="kdrama6-card.jpg" data-rating="10/10" data-review="Review here...">
+          <img src="kdrama6.jpg" alt="K-Drama 6">
         </div>
-      </section>
-
-      <!-- SECTION B: ARE YOU INTO KPOP TOO? -->
-      <section id="kpop-intro">
-        <h2>ARE YOU INTO KPOP TOO?</h2>
-        <p>HEY, WHAT GROUP DO YOU STAN? WANNA KNOW MINE?</p>
-        <div class="ipod-graphic">
-          <img src="ipod.png" alt="iPod Illustration">
+        <div class="drama-card" data-poster="weakhero-card.jpg" data-rating="10/10" data-review="Review here...">
+          <img src="weakhero.jpg" alt="Weak Hero Class 1">
         </div>
-      </section>
-
-      <!-- SECTION C: MY K-POP CORNER -->
-      <section id="kpop-corner">
-        <h2>MY K-POP CORNER ♡</h2>
-        <div class="kpop-story-box">
-          <p>Honestly, I wasn't really that into K-pop before. But everything changed when I discovered Universe Ticket. Back in Grade 10, waiting for every new episode became something I genuinely looked forward to. It was the first time I found myself getting so invested in a survival show, its contestants, and their journeys.</p>
-          <p>That's where I first noticed Gehlee. I don't really know how to explain it, but I've been drawn to her ever since. I admire how kind and confident she is, how she expresses herself, and how she knows when to stand up for herself. Watching her grow throughout the show and eventually debut with UNIS made me genuinely happy. Even when their contract came to an end, the memories and admiration stayed with me.</p>
-          <p>I guess Universe Ticket became my gateway to K-pop. What started as simply waiting for new episodes turned into discovering groups, appreciating different talents, and finding so much happiness in their music and performances. And honestly, I'm glad I got to experience all of it.</p>
+        <div class="drama-card" data-poster="revenant-card.jpg" data-rating="10/10" data-review="Review here...">
+          <img src="revenant.jpg" alt="Revenant">
         </div>
-        <p class="stan-prompt">Let me introduce them to you why i stan them.</p>
-        <p class="view-why">view why.</p>
-      </section>
-
-      <!-- SECTION D: K-POP GROUPS (Clickable Photos) -->
-      <section id="kpop-groups">
-        <div class="group-card" id="group-kiof">
-          <img src="kiof.jpg" alt="Kiss of Life">
-          <h3>Kiss of Life</h3>
+        <div class="drama-card" data-poster="kdrama9-card.jpg" data-rating="10/10" data-review="Review here...">
+          <img src="kdrama9.jpg" alt="K-Drama 9">
         </div>
-
-        <div class="group-card" id="group-unis">
-          <img src="unis.jpg" alt="UNIS">
-          <h3>UNIS</h3>
+        <div class="drama-card" data-poster="watermelon-card.jpg" data-rating="10/10" data-review="Review here...">
+          <img src="watermelon.jpg" alt="Twinkling Watermelon">
         </div>
-
-        <div class="group-card" id="group-ahof">
-          <img src="ahof.jpg" alt="AHOF">
-          <h3>AHOF</h3>
+        <div class="drama-card" data-poster="kdrama11-card.jpg" data-rating="10/10" data-review="Review here...">
+          <img src="kdrama11.jpg" alt="K-Drama 11">
         </div>
-      </section>
-
-    </main>
-
-    <!-- ============================================================ -->
-    <!-- POP-UP MODAL PARA SA K-DRAMA RATING & REVIEW                -->
-    <!-- ============================================================ -->
-    <div id="review-modal" class="modal" style="display: none;">
-      <div class="modal-content">
-        <span class="close-btn" id="close-modal">&times;</span>
-
-        <div class="modal-poster">
-          <img id="modal-img" src="" alt="Drama Card">
+        <div class="drama-card" data-poster="kdrama12-card.jpg" data-rating="10/10" data-review="Review here...">
+          <img src="kdrama12.jpg" alt="K-Drama 12">
         </div>
+      </div>
+    </section>
 
-        <div class="modal-review">
-          <div class="notebook-paper">
-            <h3>Rating: <span id="modal-rating"></span></h3>
-            <p id="modal-text"></p>
-          </div>
+    <section id="kpop-intro" class="kpop-intro-section">
+      <h2 class="kpop-heading">ARE YOU INTO KPOP TOO?</h2>
+      <p class="kpop-subtext">HEY, WHAT GROUP DO YOU STAN? WANNA KNOW MINE?</p>
+      <div class="ipod-graphic">
+        <img src="ipod.png" alt="iPod Illustration">
+      </div>
+    </section>
 
-          <a href="#footer-contact" class="btn-say" id="modal-say-btn">
-            <i class="fa-solid fa-comment-dots"></i> What's your say?
+    <section id="kpop-corner" class="kpop-corner-section">
+      <h2 class="corner-title">MY K-POP CORNER ♡</h2>
+      <div class="kpop-story-image">
+        <img src="kpop-corner-letter.png" alt="My K-Pop Story">
+      </div>
+      <p class="intro-words">Let me introduce them to you why i stan them.</p>
+      <p class="view-why-words">view why.</p>
+    </section>
+
+    <section id="kpop-groups" class="kpop-groups-section">
+      <div class="group-card" id="open-kiof-folder">
+        <img src="kiof.jpg" alt="Kiss of Life">
+        <h3 class="group-card-title">Kiss of Life</h3>
+      </div>
+      <div class="group-card" id="open-unis-folder">
+        <img src="unis.jpg" alt="UNIS">
+        <h3 class="group-card-title">UNIS</h3>
+      </div>
+      <div class="group-card" id="open-ahof-folder">
+        <img src="ahof.jpg" alt="AHOF">
+        <h3 class="group-card-title">AHOF</h3>
+      </div>
+    </section>
+  </main>
+  <!-- FOLDER 1: KISS OF LIFE -->
+  <main id="kiof-folder-view" class="page-view" style="display: none;">
+    <section id="kiof-group-part" class="group-detail-section">
+      <a href="#kpop-groups" class="back-link back-to-groups">← Back to Groups</a>
+      <div class="group-header">
+        <a href="https://kprofiles.com" target="_blank" class="kprofile-link">
+          <img src="kiof.jpg" alt="Kiss of Life" class="detail-group-img">
+          <h2 class="detail-group-name">Kiof ↗</h2>
+        </a>
+      </div>
+      <div class="group-why-box">
+        <p class="group-why-text">I discovered KISS OF LIFE in 2024, and I was honestly surprised by their discography because their music was exactly my taste! Their versatility, talent, and individual charms made me appreciate them even more. There's just something about their music and overall artistry that keeps me coming back.</p>
+      </div>
+      <div class="bias-trigger-box">
+        <a href="#kiof-bias-part" id="show-kiof-bias" class="clickable-words">BIAS &gt;&gt;&gt;</a>
+      </div>
+    </section>
+
+    <section id="kiof-bias-part" class="bias-detail-section" style="display: none;">
+      <a href="#kiof-group-part" id="back-to-kiof-group" class="back-link">← Back to KIOF</a>
+      <h2 class="bias-heading">BIAS &lt;&lt;&lt;</h2>
+      <div class="bias-row">
+        <div class="bias-profile">
+          <img src="julie-han.jpg" alt="Julie Han" class="bias-photo">
+          <a href="https://kprofiles.com" target="_blank" class="kprofile-link">
+            <h3 class="bias-name">Julie Han ↗</h3>
           </a>
         </div>
+        <div class="bias-note-image">
+          <img src="julie-note.png" alt="Why Julie is my bias" class="bias-note-pic">
+        </div>
+      </div>
+
+      <div class="music-player-section">
+        <h3 class="playlist-heading">On Repeat Songs - KISS OF LIFE 🎧</h3>
+        <audio class="group-audio" id="audio-kiof" src="says-it.mp3"></audio>
+        <div class="custom-player-card">
+          <img src="kiof-album.jpg" alt="KIOF Album" class="album-cover">
+          <div class="player-info">
+            <h4 class="current-song-title" id="title-kiof">Says it</h4>
+            <button type="button" class="play-btn" data-audio="audio-kiof"><i class="fa-solid fa-play"></i> Play / Pause</button>
+          </div>
+        </div>
+        <ul class="playlist-list">
+          <li class="song-item" data-audio="audio-kiof" data-title="title-kiof" data-src="says-it.mp3"><i class="fa-solid fa-circle-play"></i> 1. Says it</li>
+          <li class="song-item" data-audio="audio-kiof" data-title="title-kiof" data-src="nothing.mp3"><i class="fa-solid fa-circle-play"></i> 2. Nothing</li>
+          <li class="song-item" data-audio="audio-kiof" data-title="title-kiof" data-src="igloo.mp3"><i class="fa-solid fa-circle-play"></i> 3. Igloo</li>
+          <li class="song-item" data-audio="audio-kiof" data-title="title-kiof" data-src="tequiero.mp3"><i class="fa-solid fa-circle-play"></i> 4. Tequiero</li>
+          <li class="song-item" data-audio="audio-kiof" data-title="title-kiof" data-src="sweat.mp3"><i class="fa-solid fa-circle-play"></i> 5. Sweat</li>
+        </ul>
+      </div>
+
+      <div class="back-home-box">
+        <a href="#main-page" class="nav-home clickable-words">← Back to ARCHIVE (Main Page)</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOLDER 2: UNIS -->
+  <main id="unis-folder-view" class="page-view" style="display: none;">
+    <section id="unis-group-part" class="group-detail-section">
+      <a href="#kpop-groups" class="back-link back-to-groups">← Back to Groups</a>
+      <div class="group-header">
+        <a href="https://kprofiles.com" target="_blank" class="kprofile-link">
+          <img src="unis.jpg" alt="UNIS" class="detail-group-img">
+          <h2 class="detail-group-name">UNIS ↗</h2>
+        </a>
+      </div>
+      <div class="group-why-box">
+        <p class="group-why-text">Ilagay mo rito ang kwento mo kung bakit mo stan ang UNIS...</p>
+      </div>
+      <div class="bias-trigger-box">
+        <a href="#unis-bias-part" id="show-unis-bias" class="clickable-words">BIAS &gt;&gt;&gt;</a>
+      </div>
+    </section>
+
+    <section id="unis-bias-part" class="bias-detail-section" style="display: none;">
+      <a href="#unis-group-part" id="back-to-unis-group" class="back-link">← Back to UNIS</a>
+      <h2 class="bias-heading">BIAS &lt;&lt;&lt;</h2>
+      <div class="bias-row">
+        <div class="bias-profile">
+          <img src="gehlee.jpg" alt="Gehlee Dangca" class="bias-photo">
+          <a href="https://kprofiles.com" target="_blank" class="kprofile-link">
+            <h3 class="bias-name">Gehlee Dangca ↗</h3>
+          </a>
+        </div>
+        <div class="bias-note-image">
+          <img src="gehlee-note.png" alt="Why Gehlee is my bias" class="bias-note-pic">
+        </div>
+      </div>
+
+      <div class="music-player-section">
+        <h3 class="playlist-heading">On Repeat Songs - UNIS 🎧</h3>
+        <audio class="group-audio" id="audio-unis" src="dopamine.mp3"></audio>
+        <div class="custom-player-card">
+          <img src="unis-album.jpg" alt="UNIS Album" class="album-cover">
+          <div class="player-info">
+            <h4 class="current-song-title" id="title-unis">Dopamine</h4>
+            <button type="button" class="play-btn" data-audio="audio-unis"><i class="fa-solid fa-play"></i> Play / Pause</button>
+          </div>
+        </div>
+        <ul class="playlist-list">
+          <li class="song-item" data-audio="audio-unis" data-title="title-unis" data-src="dopamine.mp3"><i class="fa-solid fa-circle-play"></i> 1. Dopamine</li>
+          <li class="song-item" data-audio="audio-unis" data-title="title-unis" data-src="curious.mp3"><i class="fa-solid fa-circle-play"></i> 2. Curious</li>
+          <li class="song-item" data-audio="audio-unis" data-title="title-unis" data-src="dream-of-girls.mp3"><i class="fa-solid fa-circle-play"></i> 3. Dream of girls</li>
+          <li class="song-item" data-audio="audio-unis" data-title="title-unis" data-src="skyland-starland.mp3"><i class="fa-solid fa-circle-play"></i> 4. Skyland starland</li>
+          <li class="song-item" data-audio="audio-unis" data-title="title-unis" data-src="swicy.mp3"><i class="fa-solid fa-circle-play"></i> 5. Swicy</li>
+        </ul>
+      </div>
+
+      <div class="back-home-box">
+        <a href="#main-page" class="nav-home clickable-words">← Back to ARCHIVE (Main Page)</a>
+      </div>
+    </section>
+  </main>
+  <!-- FOLDER 3: AHOF -->
+  <main id="ahof-folder-view" class="page-view" style="display: none;">
+    <section id="ahof-group-part" class="group-detail-section">
+      <a href="#kpop-groups" class="back-link back-to-groups">← Back to Groups</a>
+      <div class="group-header">
+        <a href="https://kprofiles.com" target="_blank" class="kprofile-link">
+          <img src="ahof.jpg" alt="AHOF" class="detail-group-img">
+          <h2 class="detail-group-name">AHOF ↗</h2>
+        </a>
+      </div>
+      <div class="group-why-box">
+        <p class="group-why-text">Ilagay mo rito ang kwento mo kung bakit mo stan ang AHOF...</p>
+      </div>
+      <div class="bias-trigger-box">
+        <a href="#ahof-bias-part" id="show-ahof-bias" class="clickable-words">BIAS &gt;&gt;&gt;</a>
+      </div>
+    </section>
+
+    <section id="ahof-bias-part" class="bias-detail-section" style="display: none;">
+      <a href="#ahof-group-part" id="back-to-ahof-group" class="back-link">← Back to AHOF</a>
+      <h2 class="bias-heading">BIAS &lt;&lt;&lt;</h2>
+      <div class="bias-row">
+        <div class="bias-profile">
+          <img src="jl.jpg" alt="JL Gaspar" class="bias-photo">
+          <a href="https://kprofiles.com" target="_blank" class="kprofile-link">
+            <h3 class="bias-name">JL Gaspar ↗</h3>
+          </a>
+        </div>
+        <div class="bias-note-image">
+          <img src="jl-note.png" alt="Why JL is my bias" class="bias-note-pic">
+        </div>
+      </div>
+
+      <div class="music-player-section">
+        <h3 class="playlist-heading">On Repeat Songs - AHOF 🎧</h3>
+        <audio class="group-audio" id="audio-ahof" src="focus-on-you.mp3"></audio>
+        <div class="custom-player-card">
+          <img src="ahof-album.jpg" alt="AHOF Album" class="album-cover">
+          <div class="player-info">
+            <h4 class="current-song-title" id="title-ahof">Focus on you</h4>
+            <button type="button" class="play-btn" data-audio="audio-ahof"><i class="fa-solid fa-play"></i> Play / Pause</button>
+          </div>
+        </div>
+        <ul class="playlist-list">
+          <li class="song-item" data-audio="audio-ahof" data-title="title-ahof" data-src="focus-on-you.mp3"><i class="fa-solid fa-circle-play"></i> 1. Focus on you</li>
+          <li class="song-item" data-audio="audio-ahof" data-title="title-ahof" data-src="pinocchio.mp3"><i class="fa-solid fa-circle-play"></i> 2. Pinocchio</li>
+          <li class="song-item" data-audio="audio-ahof" data-title="title-ahof" data-src="just-say-yes.mp3"><i class="fa-solid fa-circle-play"></i> 3. Just say yes</li>
+          <li class="song-item" data-audio="audio-ahof" data-title="title-ahof" data-src="butterfly.mp3"><i class="fa-solid fa-circle-play"></i> 4. Butterfly</li>
+          <li class="song-item" data-audio="audio-ahof" data-title="title-ahof" data-src="incompleted.mp3"><i class="fa-solid fa-circle-play"></i> 5. Incompleted</li>
+        </ul>
+      </div>
+
+      <div class="back-home-box">
+        <a href="#main-page" class="nav-home clickable-words">← Back to ARCHIVE (Main Page)</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- K-DRAMA RATING & REVIEW MODAL -->
+  <div id="review-modal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <span class="close-btn" id="close-modal">&times;</span>
+      <div class="modal-poster">
+        <img id="modal-img" src="" alt="Drama Card">
+      </div>
+      <div class="modal-review">
+        <div class="notebook-paper">
+          <h3 class="modal-rating-title">Rating: <span id="modal-rating"></span></h3>
+          <p id="modal-text" class="modal-review-text"></p>
+        </div>
+        <a href="#comment-section" class="btn-say" id="modal-say-btn">
+          <i class="fa-solid fa-comment-dots"></i> What's your say?
+        </a>
       </div>
     </div>
+  </div>
 
-    <!-- ============================================================ -->
-    <!-- FOOTER (Laging nakikita sa pinakababa)                       -->
-    <!-- ============================================================ -->
-    <footer id="footer-contact">
+  <!-- COMMENT SECTION -->
+  <section id="comment-section" class="comment-section">
+    <h3 class="comment-heading">What's your say? 💬</h3>
+    <p class="comment-subtext">Drop your thoughts, K-drama recos, or bias below!</p>
+    <form id="comment-form" class="comment-form">
+      <input type="text" id="comment-name" placeholder="Your name or nickname" required>
+      <textarea id="comment-input" rows="3" placeholder="Write your message here..." required></textarea>
+      <button type="submit" class="btn-post">Post Comment</button>
+    </form>
+    <div id="comments-list" class="comments-list">
+      <div class="comment-bubble">
+        <strong>Yel (Author):</strong> Welcome to my little space! Feel free to leave a comment ♡
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer-contact" class="main-footer">
+    <div class="outro-banner">
+      <h4 class="outro-quote">Sometimes, you discover artists because of their music, but end up staying because of the people they are and the happiness they bring.</h4>
+    </div>
+    <div class="socials-box">
+      <p class="socials-heading">WANNA RECO ME SOME? LET'S BE MOOTS</p>
+      <div class="social-icons">
+        <a href="https://m.me" target="_blank" aria-label="Messenger"><i class="fa-brands fa-facebook-messenger"></i></a>
+        <a href="https://x.com" target="_blank" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="https://tiktok.com" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
