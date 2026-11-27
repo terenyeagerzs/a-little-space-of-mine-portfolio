@@ -4,8 +4,17 @@
 const hamburgerBtn = document.getElementById('hamburger-btn');
 const navMenu = document.getElementById('nav-menu');
 
-hamburgerBtn.addEventListener('click', () => {
-  navMenu.classList.toggle('active');
+if (hamburgerBtn && navMenu) {
+  hamburgerBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    navMenu.classList.toggle('active');
+  });
+}
+
+document.querySelectorAll('.nav-link').forEach(link => {
+  link.addEventListener('click', () => {
+    navMenu.classList.remove('active');
+  });
 });
 
 // ==========================================
@@ -19,22 +28,20 @@ function showView(viewId) {
   });
   document.getElementById(viewId).style.display = 'block';
   navMenu.classList.remove('active');
-  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// Nav links papunta sa Home View (ARCHIVE, Home, About)
+// Nav links papunta sa Home View (ARCHIVE, Home, About, Interest preview)
 document.querySelectorAll('.nav-home').forEach(link => {
   link.addEventListener('click', () => {
     showView('home-view');
   });
 });
 
-// Nav link & Clickable words papunta sa Interest View (Top 12 K-Dramas)
-document.querySelectorAll('.nav-interest, #open-kdrama-view').forEach(link => {
-  link.addEventListener('click', (e) => {
-    e.preventDefault();
-    showView('interest-view');
-  });
+// Clickable words papunta sa Top 12 K-Dramas View
+document.getElementById('open-kdrama-view').addEventListener('click', (e) => {
+  e.preventDefault();
+  showView('interest-view');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
 // Back to Groups button
@@ -42,6 +49,7 @@ document.querySelectorAll('.back-to-groups').forEach(btn => {
   btn.addEventListener('click', (e) => {
     e.preventDefault();
     showView('interest-view');
+    document.getElementById('kpop-groups').scrollIntoView({ behavior: 'smooth' });
   });
 });
 
@@ -53,6 +61,7 @@ document.getElementById('open-kiof-folder').addEventListener('click', () => {
   showView('kiof-folder-view');
   document.getElementById('kiof-group-part').style.display = 'block';
   document.getElementById('kiof-bias-part').style.display = 'none';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 document.getElementById('show-kiof-bias').addEventListener('click', (e) => {
   e.preventDefault();
@@ -71,6 +80,7 @@ document.getElementById('open-unis-folder').addEventListener('click', () => {
   showView('unis-folder-view');
   document.getElementById('unis-group-part').style.display = 'block';
   document.getElementById('unis-bias-part').style.display = 'none';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 document.getElementById('show-unis-bias').addEventListener('click', (e) => {
   e.preventDefault();
@@ -89,6 +99,7 @@ document.getElementById('open-ahof-folder').addEventListener('click', () => {
   showView('ahof-folder-view');
   document.getElementById('ahof-group-part').style.display = 'block';
   document.getElementById('ahof-bias-part').style.display = 'none';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 document.getElementById('show-ahof-bias').addEventListener('click', (e) => {
   e.preventDefault();
