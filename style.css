@@ -14,12 +14,15 @@ body {
   font-family: 'Quicksand', sans-serif;
   color: #1e3a5f;
   background-color: #dbeafe;
-  /* Pastel Blue Gingham / Checkered Scrapbook Background */
   background-image: 
     linear-gradient(90deg, rgba(147, 197, 253, 0.35) 50%, transparent 50%),
     linear-gradient(rgba(147, 197, 253, 0.35) 50%, transparent 50%);
   background-size: 40px 40px;
   overflow-x: hidden;
+}
+
+section {
+  scroll-margin-top: 85px;
 }
 
 a {
@@ -43,7 +46,7 @@ img {
   justify-content: space-between;
   align-items: center;
   padding: 15px 6%;
-  background: rgba(239, 246, 255, 0.9);
+  background: rgba(239, 246, 255, 0.92);
   backdrop-filter: blur(8px);
   border-bottom: 2px dashed #93c5fd;
 }
@@ -54,6 +57,18 @@ img {
   font-weight: 700;
   color: #1d4ed8;
   letter-spacing: 2px;
+}
+
+.nav-right-controls {
+  display: none;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-bear {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
 }
 
 .main-nav ul {
@@ -77,10 +92,10 @@ img {
 }
 
 .hamburger {
-  display: none;
-  font-size: 1.8rem;
+  font-size: 2rem;
   cursor: pointer;
-  color: #1d4ed8;
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(30, 58, 138, 0.35);
 }
 
 .mobile-only {
@@ -698,22 +713,57 @@ img {
 }
 
 /* ========================================== */
-/* MOBILE RESPONSIVE                          */
+/* MOBILE RESPONSIVE & DASHED BLUE MENU       */
 /* ========================================== */
 @media (max-width: 768px) {
-  .hamburger { display: block; }
-  .mobile-only { display: block; }
+  .nav-right-controls {
+    display: flex;
+  }
+
+  .mobile-only {
+    display: block;
+  }
+
   .main-nav {
     display: none;
     position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background: #eff6ff;
-    padding: 15px;
-    border-bottom: 2px dashed #93c5fd;
+    top: 72px;
+    right: 20px;
+    width: 210px;
+    background: #5ca4d6;
+    border-radius: 26px;
+    padding: 12px;
+    box-shadow: 0 10px 25px rgba(30, 58, 138, 0.25);
   }
-  .main-nav.active { display: block; }
-  .main-nav ul { flex-direction: column; text-align: center; gap: 14px; }
-  .kdrama-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .main-nav.active {
+    display: block;
+  }
+
+  .main-nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    padding: 22px 15px;
+    border: 2.5px dashed #ffffff;
+    border-radius: 20px;
+  }
+
+  .main-nav .nav-link {
+    color: #ffffff;
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 6px;
+    text-decoration-thickness: 2.5px;
+  }
+
+  .main-nav .nav-link:hover {
+    background: transparent;
+    color: #dbeafe;
+  }
+
+  .kdrama-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
