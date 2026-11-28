@@ -130,7 +130,7 @@ if (reviewModal) {
 }
 
 // ==========================================
-// 5. MUSIC PLAYER & TOP 5 PLAYLIST
+// 5. MUSIC PLAYER & TOP 5 PLAYLIST (WITH ALBUM COVER SWITCH)
 // ==========================================
 document.querySelectorAll('.play-btn').forEach(btn => {
   btn.addEventListener('click', () => {
@@ -148,9 +148,14 @@ document.querySelectorAll('.song-item').forEach(item => {
   item.addEventListener('click', () => {
     const audio = document.getElementById(item.getAttribute('data-audio'));
     const titleEl = document.getElementById(item.getAttribute('data-title'));
+    const coverEl = document.getElementById(item.getAttribute('data-cover'));
+
     document.querySelectorAll('.group-audio').forEach(a => a.pause());
     audio.src = item.getAttribute('data-src');
     titleEl.textContent = item.textContent.replace(/^\d+\.\s*/, '');
+    if (coverEl && item.getAttribute('data-img')) {
+      coverEl.src = item.getAttribute('data-img');
+    }
     audio.play();
   });
 });
