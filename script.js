@@ -1,6 +1,3 @@
-// ==========================================
-// 1. MOBILE HAMBURGER MENU
-// ==========================================
 const hamburgerBtn = document.getElementById('hamburger-btn');
 const navMenu = document.getElementById('nav-menu');
 
@@ -17,12 +14,8 @@ document.querySelectorAll('.nav-link').forEach(link => {
   });
 });
 
-// ==========================================
-// 2. VIEW SWITCHING SA INTEREST.HTML
-// ==========================================
 const allViews = document.querySelectorAll('.page-view');
 
-/** @param {string} viewId */
 function showView(viewId) {
   allViews.forEach(view => {
     view.style.display = 'none';
@@ -40,9 +33,6 @@ document.querySelectorAll('.back-to-groups').forEach(btn => {
   });
 });
 
-// ==========================================
-// 3. K-POP FOLDERS & BIAS SWITCHING
-// ==========================================
 const openKiof = document.getElementById('open-kiof-folder');
 if (openKiof) {
   openKiof.addEventListener('click', () => {
@@ -106,9 +96,6 @@ if (openAhof) {
   });
 }
 
-// ==========================================
-// 4. K-DRAMA RATING & REVIEW MODAL
-// ==========================================
 const reviewModal = document.getElementById('review-modal');
 if (reviewModal) {
   document.querySelectorAll('.drama-card').forEach(card => {
@@ -129,9 +116,7 @@ if (reviewModal) {
   });
 }
 
-// ==========================================
-// 5. MUSIC PLAYER & TOP 5 PLAYLIST (WITH ALBUM COVER SWITCH)
-// ==========================================
+
 document.querySelectorAll('.play-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     const audio = document.getElementById(btn.getAttribute('data-audio'));
@@ -160,9 +145,7 @@ document.querySelectorAll('.song-item').forEach(item => {
   });
 });
 
-// ==========================================
-// 6. WHAT'S YOUR SAY? COMMENT SECTION
-// ==========================================
+
 const commentForm = document.getElementById('comment-form');
 if (commentForm) {
   commentForm.addEventListener('submit', (e) => {
